@@ -1,8 +1,8 @@
-﻿using System.Text.Json.Serialization;
-using System.Text.Json;
-using Microsoft.AspNetCore.Components;
-using Vizor.ECharts.Internal;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Vizor.ECharts.Internal;
 
 namespace Vizor.ECharts;
 
