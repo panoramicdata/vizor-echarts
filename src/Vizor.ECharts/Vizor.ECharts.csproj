@@ -13,7 +13,7 @@
 
 		<Product>Vizor ECharts components for Blazor</Product>
 		<ProductName>Vizor.ECharts</ProductName>
-		<Version>0.10.3</Version>
+		<Version>$(Version)</Version>
 		<ProductVersion>$(Version)</ProductVersion>
 		<AssemblyVersion>$(Version)</AssemblyVersion>
 		<FileVersion>$(Version)</FileVersion>
@@ -29,7 +29,7 @@
 		<!-- no warnings for missing XML docs -->
 		<NoWarn>$(NoWarn);1591</NoWarn>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Title>Vizor.ECharts</Title>
+		<Title>Vizor.ECharts.Net80</Title>
 	</PropertyGroup>
 
 	<ItemGroup>
