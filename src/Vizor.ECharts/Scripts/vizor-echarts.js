@@ -170,6 +170,16 @@
 		chart.hideLoading();
 	},
 
+	clearChart: function (id) {
+		var chart = vizorECharts.charts.get(id);
+		if (chart == null) {
+			console.error("Failed to clear chart " + id);
+			return;
+		}
+
+		chart.clear();
+	},
+
 	disposeChart: function (id) {
 		var chart = vizorECharts.charts.get(id);
 		if (chart == null) {
