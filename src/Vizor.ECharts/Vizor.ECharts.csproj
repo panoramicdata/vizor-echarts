@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
@@ -29,8 +29,8 @@
 		<!-- no warnings for missing XML docs -->
 		<NoWarn>$(NoWarn);1591</NoWarn>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Title>Vizor.ECharts.Net80</Title>
-		<PackageId>$(AssemblyName).Net80</PackageId>
+		<Title>Vizor.ECharts.Net90</Title>
+		<PackageId>$(AssemblyName).Net90</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -42,22 +42,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="wwwroot\" />
-		<Folder Include="wwwroot\js\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Remove="package.json" />
+		<None Include="package.json" />
+		<None Include="gulpfile.js" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.5" />
-		<PackageReference Include="Microsoft.JSInterop" Version="8.0.5" />
-		<PackageReference Include="Nerdbank.GitVersioning" Version="3.6.133">
+		<PackageReference Include="Microsoft.AspNetCore.Components" Version="9.0.10" />
+		<PackageReference Include="Microsoft.JSInterop" Version="9.0.10" />
+		<PackageReference Include="Nerdbank.GitVersioning" Version="3.8.118">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
