@@ -1,7 +1,7 @@
 # Phase 16: Outstanding Issues and Enhancements
 
 **Status**: IN PROGRESS  
-**Total Estimated Time**: 153-280 hours (phased over multiple releases)
+**Total Estimated Time**: 150-277 hours (phased over multiple releases)
 
 ---
 
@@ -16,7 +16,7 @@ This phase documents outstanding issues and enhancements to be addressed after t
 | Issue | Priority | Estimated Time | Status |
 |-------|----------|----------------|--------|
 | [16.1: xUnit Duplicate Logging](#161-xunit-duplicate-logging) | ?? Medium | 1-2 hours | ? Not Started |
-| [16.2: NBGV Versioning](#162-nbgv-version-number-not-applied) | ?? High | 2-3 hours | ? Not Started |
+| [16.2: NBGV Versioning](#162-nbgv-version-number-not-applied) | ?? High | 2-3 hours | ? **COMPLETE** |
 | [16.3: Symbol Package](#163-generate-and-publish-symbol-package-snupkg) | ?? Medium | 1-2 hours | ? Not Started |
 | [16.4: Dark Mode](#164-demo-project-dark-mode-support) | ?? Low | 3-4 hours | ? Not Started |
 | [16.5: GitHub Pages](#165-publish-demo-to-github-pages) | ?? Medium | 4-6 hours | ? Not Started |
@@ -50,30 +50,49 @@ This phase documents outstanding issues and enhancements to be addressed after t
 
 ---
 
-## 16.2 NBGV Version Number Not Applied
+## 16.2 NBGV Version Number Not Applied ?
 
+**Status**: ? **RESOLVED** (2024-12-27)  
 **Issue**: Nerdbank.GitVersioning (NBGV) version not being applied to generated NuGet package  
-**Priority**: ?? High (versioning is critical for package management) - **BLOCKING FOR RELEASE**  
-**File**: `PanoramicData.ECharts\PanoramicData.ECharts.csproj`
+**Priority**: ?? High (versioning is critical for package management) - ~~BLOCKING FOR RELEASE~~  
+**Resolution**: NBGV was already properly configured and working
 
-### Investigation Required
-- [ ] Verify `version.json` configuration at repository root
-- [ ] Check if `Nerdbank.GitVersioning` package is referenced
-- [ ] Review .csproj PropertyGroups for version override
-- [ ] Test NBGV CLI: `nbgv get-version`
-- [ ] Check if `<GenerateAssemblyVersionInfo>` is disabled
+### Investigation Results
+- [x] ? Verified `version.json` configuration at repository root - **FOUND and correct**
+- [x] ? Checked `Nerdbank.GitVersioning` package referenced - **v3.9.50 installed**
+- [x] ? Reviewed .csproj PropertyGroups for version override - **No overrides found**
+- [x] ? Tested NBGV CLI: `nbgv get-version` - **Working correctly**
+  - Version: 6.0.0.28
+  - AssemblyVersion: 6.0.0.0
+  - NuGetPackageVersion: 6.0.0 ?
+- [x] ? Verified package generation - **PanoramicData.ECharts.6.0.0.nupkg created successfully**
 
-### Implementation Tasks
-- [ ] Add/Update `Nerdbank.GitVersioning` PackageReference
-- [ ] Remove hard-coded version numbers from .csproj
-- [ ] Configure `version.json` with proper version format
-- [ ] Test package generation with NBGV-generated version
-- [ ] Update CI/CD pipeline if needed
+### Root Cause
+**False alarm** - NBGV was already properly configured and functioning correctly. The issue was misidentified.
 
-### Expected Files to Modify
-- `version.json` (repository root)
-- `PanoramicData.ECharts\PanoramicData.ECharts.csproj`
-- `Directory.Build.props` (if exists)
+### Configuration Details
+**version.json** (repository root):
+```json
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/Nerdbank.GitVersioning/master/src/NerdBank.GitVersioning/version.schema.json",
+  "version": "6.0.0",
+  "publicReleaseRefSpec": [
+    "^refs/heads/main"
+  ]
+}
+```
+
+**PanoramicData.ECharts.csproj**:
+- ? Nerdbank.GitVersioning package reference (v3.9.50)
+- ? No hard-coded version properties (correct for NBGV)
+- ? GeneratePackageOnBuild = True (Release mode only)
+
+### Verification
+- ? `nbgv get-version` returns: NuGetPackageVersion: 6.0.0
+- ? Package file created: `PanoramicData.ECharts.6.0.0.nupkg`
+- ? No changes required to .csproj or version.json
+
+**Status**: ? **COMPLETE** - No blocking issue, ready for release
 
 ---
 
@@ -179,15 +198,15 @@ See [PHASE_16_7_ZERO_WARNINGS.md](PHASE_16_7_ZERO_WARNINGS.md) for detailed impl
 
 ## Next Priority
 
-**Phase 16.2 (NBGV versioning)** - BLOCKING FOR RELEASE
+**Phase 16.3 (Symbol Package)** - Medium priority for v6.0.0
 
-Must be completed before v6.0.0 can be published to NuGet.
+Symbol packages improve developer experience and should be included in the initial release.
 
 ---
 
 ## Release Strategy
 
-1. **v6.0.0** - Core upgrade with bug fixes (Phases 1-15 + 16.2-16.3)
+1. **v6.0.0** - Core upgrade with bug fixes (Phases 1-15 + 16.2 ? + 16.3)
 2. **v6.1.0** - GitHub Pages demo + dark mode (Phases 16.4-16.5)
 3. **v6.2.0** - Zero warnings + initial example expansion (Phase 16.7 + partial 16.6)
 4. **v6.3.0+** - Continued example coverage + advanced features (Phase 16.6 continuation)
