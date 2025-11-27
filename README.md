@@ -1,257 +1,285 @@
 # PanoramicData.ECharts
 
-Blazor wrapper for [Apache ECharts](https://echarts.apache.org/en/index.html).
+[![Nuget](https://img.shields.io/nuget/v/PanoramicData.ECharts)](https://www.nuget.org/packages/PanoramicData.ECharts/)
+[![Nuget](https://img.shields.io/nuget/dt/PanoramicData.ECharts)](https://www.nuget.org/packages/PanoramicData.ECharts/)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/563d18517c424783814728f76d8aca6f)](https://app.codacy.com/gh/panoramicdata/PanoramicData.ECharts/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
- - Supports .NET >= 8.0
- - Ships with echarts 5.4.3
- - `Apache-2.0` Licensed (same as echarts)
- - Lots of examples in the `PanoramicData.ECharts.Demo` project
- - Refer to the official echarts [cheat sheet](https://echarts.apache.org/en/cheat-sheet.html) for a quick introduction
- 
-Supported Chart Types:
- - Line
- - Bar
- - Pie
- - Scatter
- - Geo/Map
- - Candlestick
- - Radar
- - Boxplot
- - Heatmap
- - Graph
- - Tree
- - Treemap
- - Sunburst
- - Parallel
- - Sankey
- - Funnel
- - Gauge
- - Pictorial Bar
- - Theme River
- - Custom
+A comprehensive Blazor wrapper for [Apache ECharts](https://echarts.apache.org/en/index.html), providing type-safe C# bindings for creating interactive data visualizations in Blazor applications.
 
-## How to include
+## Features
 
-1. Add a package reference to `PanoramicData.ECharts`
-2. Add `vizor-echarts-bundle-min.js` OR `vizor-echarts-min.js` to your `_Host.cshtml` or `_Layout.cshtml` file
-    - `vizor-echarts-bundle-min.js` includes apache echarts and echarts-stat.
-	- `vizor-echarts-min.js` ONLY contains the binding code and requires you to manually include apache-echarts and plugins.
-	
-```
-<script src="_content/PanoramicData.ECharts/js/vizor-echarts-bundle-min.js"></script>
-```
+- ? **Full .NET Support**: Compatible with .NET 10.0
+- ? **Latest ECharts**: Ships with Apache ECharts 6.0.0
+- ? **Type-Safe Bindings**: Strong typing throughout the API
+- ? **Open Source**: Apache-2.0 licensed (same as Apache ECharts)
+- ? **Comprehensive Examples**: Extensive demo project with real-world examples
+- ? **Multiple Data Loading Strategies**: Sync, async, and external data sources
+- ? **JavaScript Functions**: Support for custom formatters and callbacks
+- ? **Real-time Updates**: Dynamic chart updates and animations
 
-See the [example](https://github.com/datahint-eu/vizor-echarts/blob/main/src/PanoramicData.ECharts.Demo/Pages/_Host.cshtml) from the demo application.
+## Supported Chart Types
 
-## How to use
+| Category | Chart Types |
+|----------|-------------|
+| **Basic** | Line, Bar, Pie, Scatter |
+| **Geographic** | Geo, Map |
+| **Financial** | Candlestick |
+| **Statistical** | Radar, Boxplot, Heatmap |
+| **Graph** | Graph, Tree, Treemap, Sunburst |
+| **Flow** | Parallel, Sankey, Funnel |
+| **Other** | Gauge, Pictorial Bar, Theme River, Custom |
 
-The bindings are nearly identical to the javascript/typescript version.
-This makes it very easy to translate the examples from the official documentation to C#.
+## Quick Start
 
-For example: [a simple pie chart](https://echarts.apache.org/examples/en/editor.html?c=pie-simple).
+### Installation
 
-Add a using statement:
-```
-@using PanoramicData.ECharts;
+Add the NuGet package to your Blazor project:
+
+```bash
+dotnet add package PanoramicData.ECharts
 ```
 
-Chart component in your .razor file:
-```
-<PanoramicData.ECharts.EChart Options="@options" Width="auto" Height="400px" />
-```
+### Include JavaScript
 
-Chart options in the code section of your razor file:
-```
-private ChartOptions options = new()
-{
-	Title = new()
-	{
-		Text = "Referer of a Website",
-		Subtext = "Fake Data",
-		Left = "center"
-	},
-	Tooltip = new()
-	{
-		Trigger = ECharts.TooltipTrigger.Item
-	},
-	Legend = new()
-	{
-		Orient = Orient.Vertical,
-		Left = "left"
-	},
-	Series = new()
-	{
-		new PieSeries()
-		{
-			Name = "Access From",
-			Radius = new CircleRadius("50%"),
-			Data = new List<PieSeriesData>()
-			{
-				new() { Value = 1048, Name = "Search Engine" },
-				new() { Value = 735, Name = "Direct" },
-				new() { Value = 580, Name = "Email" },
-				new() { Value = 484, Name = "Union Ads" },
-				new() { Value = 300, Name = "Video Ads" },
-			},
-			Emphasis = new()
-			{
-				ItemStyle = new()
-				{
-					ShadowBlur = 10,
-					ShadowOffsetX = 0,
-					ShadowColor = Color.FromRGBA(0, 0, 0, 0.5)
-				}
-			}
-		}
-	}
-};
+Add the JavaScript bundle to your `_Host.cshtml`, `_Layout.cshtml`, or `App.razor`:
+
+```html
+<!-- Option 1: Bundle with ECharts and echarts-stat (recommended) -->
+<script src="_content/PanoramicData.ECharts/js/panoramicdata-echarts-bundle.js"></script>
+
+<!-- Option 2: Minified bundle (recommended for production) -->
+<script src="_content/PanoramicData.ECharts/js/panoramicdata-echarts-bundle-min.js"></script>
+
+<!-- Option 3: Interop only (requires manual ECharts inclusion) -->
+<script src="_content/PanoramicData.ECharts/js/panoramicdata-echarts-interop.js"></script>
 ```
 
-See the [full C# code](https://github.com/datahint-eu/vizor-echarts/blob/main/src/PanoramicData.ECharts.Samples/Areas/Pie/SimplePieChart.razor).
+See the [demo application example](https://github.com/panoramicdata/PanoramicData.ECharts/blob/main/PanoramicData.ECharts.Demo/Pages/_Host.cshtml).
 
-## Data loading
+### Basic Usage
 
-Most examples that you will find online have very basic datasets.
-However, in real life, data sets are often huge and come from various different sources.
+The C# bindings mirror the JavaScript/TypeScript API, making it easy to translate official ECharts examples.
 
-PanoramicData.ECharts allows you to define data in 3 different ways:
-1. Inside the ChartOptions, as demonstrated in most examples.
-2. Using async data loaders in C#, allowing you to fetch data directly from the database.
-3. Using external data sources (e.g.: REST API) fetched by the browser.
+**Example: [Simple Pie Chart](https://echarts.apache.org/examples/en/editor.html?c=pie-simple)**
 
-### Async data loading
-
-Specify the DataLoader parameter, this can be a sync or async function.
-```
-<PanoramicData.ECharts.EChart Options="@options" DataLoader="@LoadChartData" Width="800px" Height="400px" />
+Add the using statement:
+```csharp
+@using PanoramicData.ECharts
 ```
 
-Typically in the data loader function you update the Series property. However, you can update any chart option.
+Add the chart component:
+```html
+<EChart Options="@options" Width="auto" Height="400px" />
 ```
+
+Define the chart options:
+```csharp
+@code {
+    private ChartOptions options = new()
+    {
+        Title = new()
+        {
+            Text = "Referer of a Website",
+            Subtext = "Fake Data",
+            Left = "center"
+        },
+        Tooltip = new()
+        {
+            Trigger = TooltipTrigger.Item
+        },
+        Legend = new()
+        {
+            Orient = Orient.Vertical,
+            Left = "left"
+        },
+        Series = new()
+        {
+            new PieSeries()
+            {
+                Name = "Access From",
+                Radius = new CircleRadius("50%"),
+                Data = new List<PieSeriesData>()
+                {
+                    new() { Value = 1048, Name = "Search Engine" },
+                    new() { Value = 735, Name = "Direct" },
+                    new() { Value = 580, Name = "Email" },
+                    new() { Value = 484, Name = "Union Ads" },
+                    new() { Value = 300, Name = "Video Ads" }
+                },
+                Emphasis = new()
+                {
+                    ItemStyle = new()
+                    {
+                        ShadowBlur = 10,
+                        ShadowOffsetX = 0,
+                        ShadowColor = Color.FromRGBA(0, 0, 0, 0.5)
+                    }
+                }
+            }
+        }
+    };
+}
+```
+
+[View full example](https://github.com/panoramicdata/PanoramicData.ECharts/blob/main/PanoramicData.ECharts.Samples/Areas/Pie/SimplePieChart.razor)
+
+## Advanced Features
+
+### 1. Async Data Loading
+
+Load data asynchronously from databases or APIs:
+
+```html
+<EChart Options="@options" DataLoader="@LoadChartData" Width="800px" Height="400px" />
+```
+
+```csharp
 private async Task LoadChartData()
 {
-	options.Series = ... ;
+    // Fetch data from your database or API
+    var data = await _dataService.GetChartDataAsync();
+    
+    // Update chart options
+    options.Series = new()
+    {
+        new LineSeries()
+        {
+            Data = data.Select(d => d.Value).ToList()
+        }
+    };
 }
 ```
 
-See [full example](https://github.com/datahint-eu/vizor-echarts/blob/main/src/PanoramicData.ECharts.Samples/Areas/Misc/DataLoaderSampleChart.razor).
+[View full example](https://github.com/panoramicdata/PanoramicData.ECharts/blob/main/PanoramicData.ECharts.Samples/Areas/Misc/DataLoaderSampleChart.razor)
 
-### External Data Sources (fetch)
+### 2. External Data Sources (REST API)
 
-The short version: `ExternalDataSource` is provided as an `EChart` parameter, `ExternalDataSourceRef` is used in the `ChartOptions` to refer to a specific `ExternalDataSource`.
+Fetch data directly in the browser from external sources:
 
-Any `Data` property inside the `ChartOptions` of type `object?` accepts a `ExternalDataSourceRef` allowing you to specify a reference to an external data source.
-```
-... = new ExternalDataSourceRef(dataSource);
-```
-
-An array of `ExternalDataSource` instances must be supplied to the the `EChart` `ExternalDataSources` parameter.
-```
-<PanoramicData.ECharts.EChart ExternalDataSources="@(new[] { extData })" ... />
+```csharp
+private ExternalDataSource extData = new("https://example.com/api/data/sunburst.json");
 ```
 
-An example on how to construct an `ExternalDataSource` instance:
+```html
+<EChart ExternalDataSources="@(new[] { extData })" Options="@options" />
 ```
-... = new ExternalDataSource("https://example.com/api/data/sunburst_simple.json")
-```
-See [full example](https://github.com/datahint-eu/vizor-echarts/blob/main/src/PanoramicData.ECharts.Samples/Areas/Sunburst/SimpleSunburstChart.razor).
 
-
-It is also possible to provide a *simple* path expression to retrieve only a part of the external data:
-```
-... = new ExternalDataSource("https://example.com/api/data/sankey_simple.json", path: "nodes")
-```
-See [full example](https://github.com/datahint-eu/vizor-echarts/blob/main/src/PanoramicData.ECharts.Samples/Areas/Sankey/SankeyWithLevelsChart.razor).
-
-
-Or you can execute a function after load to manipulate the loaded data:
-```
-... = new ExternalDataSource("/data/les-miserables.json", ExternalDataFetchAs.Json)
+```csharp
+options.Series = new()
 {
-	AfterLoad = new JavascriptFunction(@"function (graph) {
-		graph.nodes.forEach(function (node) { node.symbolSize = 5; });
-		return graph;
-	}")
+    new SunburstSeries()
+    {
+        Data = new ExternalDataSourceRef(extData)
+    }
 };
 ```
-See [full example](https://github.com/datahint-eu/vizor-echarts/blob/main/src/PanoramicData.ECharts.Samples/Areas/Graph/ForceLayoutGraphChart.razor).
 
-See *Javascript functions* chapter in the readme for more details about JS functions.
+**Advanced features:**
+- Path expressions: `new ExternalDataSource("url", path: "data.items")`
+- Post-load transformations: `AfterLoad = new JavascriptFunction("...")`
+- Custom fetch options: headers, credentials, policies
 
+[View full example](https://github.com/panoramicdata/PanoramicData.ECharts/blob/main/PanoramicData.ECharts.Samples/Areas/Sunburst/SimpleSunburstChart.razor)
 
-An `ExternalDataSourceRef` also supports a path expression to select a child object.
-```
-... = new ExternalDataSourceRef(graph, "nodes")
-... = new ExternalDataSourceRef(graph, "links")
-... = new ExternalDataSourceRef(graph, "categories")
-}
-```
+### 3. Datasets and Transformations
 
-See [example](https://github.com/datahint-eu/vizor-echarts/blob/main/src/PanoramicData.ECharts.Samples/Areas/Graph/ForceLayoutGraphChart.razor).
+Simplify data retrieval with ECharts' dataset feature:
 
-
-Additional credentials, headers, policies, ... can also be supplied.
-See [ExternalDataSource](https://github.com/datahint-eu/vizor-echarts/blob/main/src/PanoramicData.ECharts/Types/ExternalDataSource.cs) and [FetchOptions](https://github.com/datahint-eu/vizor-echarts/blob/main/src/PanoramicData.ECharts/Types/FetchOptions.cs) for more details.
-
-
-**Remark 1:** Never make an `ExternalDataSource` static, you need 1 instance per chart.
-
-**Remark 2:** You will get a `InvalidOperationException` if you try to use `ExternalDataSource` in the chart options.
-
-
-### Datasets
-
-ECharts supports dataset transformations.
-This allows for simplified data retrieval, without the need to have a separate dataset for different charts or chart types.
-
-See [example #](https://github.com/datahint-eu/vizor-echarts/blob/main/src/PanoramicData.ECharts.Samples/Areas/Bar/SimpleDatasetBarChart.razor) and [example 2](https://github.com/datahint-eu/vizor-echarts/blob/main/src/PanoramicData.ECharts.Samples/Areas/Bar/StackedBarTimeSeriesChart.razor) .
-
-See also the [echarts dataset documentation](https://echarts.apache.org/en/option.html#dataset) and [tutorial](https://echarts.apache.org/en/tutorial.html#Dataset) .
-
-## Javascript functions
-
-ECharts sometimes allows you to assign custom functions instead of values.
-This can be achieved with the `JavascriptFunction` class.
-The class accepts a string literal containing the Javascript function. The function is evaluated inside the brower.
-Be carefull: syntax errors in the JS function will break the chart serialization.
-
-For example:
-```
-Formatter = new JavascriptFunction("function (param) { return param.name + ' (' + param.percent * 2 + '%)'; }")
+```csharp
+options.Dataset = new Dataset
+{
+    Source = new object[]
+    {
+        new[] { "product", "2015", "2016", "2017" },
+        new object[] { "Matcha Latte", 43.3, 85.8, 93.7 },
+        new object[] { "Milk Tea", 83.1, 73.4, 55.1 }
+    }
+};
 ```
 
-See [full example](https://github.com/datahint-eu/vizor-echarts/blob/main/src/PanoramicData.ECharts.Samples/Areas/Pie/HalfDoughnutChart.razor).
+[Dataset examples](https://github.com/panoramicdata/PanoramicData.ECharts/blob/main/PanoramicData.ECharts.Samples/Areas/Bar/SimpleDatasetBarChart.razor) | [ECharts dataset documentation](https://echarts.apache.org/en/tutorial.html#Dataset)
 
-## Updating charts
+### 4. JavaScript Functions
 
-Chart options and/or data can be updated. For example: to show a never ending line chart, a temperature gauge, ... .
+Use custom JavaScript for formatters and callbacks:
 
-First store a reference to your chart.
+```csharp
+Formatter = new JavascriptFunction(@"
+    function (param) { 
+        return param.name + ' (' + param.percent * 2 + '%)'; 
+    }
+")
 ```
-<PanoramicData.ECharts.EChart @ref="chart" Options="@options" Width="800px" Height="400px" />
-...
-private PanoramicData.ECharts.EChart? chart;
+
+[View full example](https://github.com/panoramicdata/PanoramicData.ECharts/blob/main/PanoramicData.ECharts.Samples/Areas/Pie/HalfDoughnutChart.razor)
+
+### 5. Real-Time Updates
+
+Update charts dynamically for live dashboards:
+
+```html
+<EChart @ref="chart" Options="@options" />
 ```
 
-Next modify the chart options.
-Modified options have full support for Javascript functions and external data sources.
-```
+```csharp
+private EChart? chart;
+
 private async Task UpdateChartAsync()
 {
-	if (chart == null)
-		return;
-
-	// modify chart options
-	
-	await chart.UpdateAsync();
+    if (chart == null) return;
+    
+    // Modify chart options
+    var series = (LineSeries)options.Series[0];
+    series.Data.Add(newValue);
+    
+    // Trigger update
+    await chart.UpdateAsync();
 }
 ```
 
-See [full example](https://github.com/datahint-eu/vizor-echarts/blob/main/src/PanoramicData.ECharts.Samples/Areas/Gauge/TempGaugeChart.razor).
+[View full example](https://github.com/panoramicdata/PanoramicData.ECharts/blob/main/PanoramicData.ECharts.Samples/Areas/Gauge/TempGaugeChart.razor)
 
+## Documentation
 
-# Filing Bugs / Future Development
+- **[Apache ECharts Documentation](https://echarts.apache.org/en/index.html)** - Official ECharts documentation
+- **[ECharts Cheat Sheet](https://echarts.apache.org/en/cheat-sheet.html)** - Quick reference guide
+- **[ECharts Examples](https://echarts.apache.org/examples/en/index.html)** - Interactive examples gallery
+- **[Demo Application](https://github.com/panoramicdata/PanoramicData.ECharts/tree/main/PanoramicData.ECharts.Demo)** - Comprehensive examples in C#
 
-See [Issues](https://github.com/datahint-eu/vizor-echarts/issues) for a list of open tasks/bugs.
+## Contributing & Support
 
-Please provide a runnable sample using the [ECharts Online Editor](https://echarts.apache.org/examples/en/editor.html) and a description of what is wrong with the C# mapping.
+### Filing Issues
+
+See [Issues](https://github.com/panoramicdata/PanoramicData.ECharts/issues) for open tasks and bug reports.
+
+When reporting issues:
+1. Provide a runnable example using the [ECharts Online Editor](https://echarts.apache.org/examples/en/editor.html)
+2. Describe the expected behavior vs. actual behavior
+3. Include your C# code mapping
+
+### Contributing
+
+We welcome contributions! Please:
+- Fork the repository
+- Create a feature branch
+- Make your changes
+- Submit a pull request
+
+Please ensure your code follows the existing style and includes appropriate tests.
+
+## License
+
+This project is licensed under the **Apache License 2.0** - the same license as Apache ECharts.
+
+See [LICENSE](LICENSE) for details.
+
+## Acknowledgments
+
+- Built on [Apache ECharts](https://echarts.apache.org/) - A powerful, interactive charting and visualization library
+- Originally created by [DataHint BV](https://github.com/datahint-eu) as Vizor.ECharts
+- Maintained by [Panoramic Data Limited](https://github.com/panoramicdata)
+
+---
+
+**[? Star this repo](https://github.com/panoramicdata/PanoramicData.ECharts)** if you find it useful!
