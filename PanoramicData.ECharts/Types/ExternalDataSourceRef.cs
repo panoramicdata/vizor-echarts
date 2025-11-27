@@ -32,14 +32,15 @@ public class ExternalDataSourceRefConverter : JsonConverter<ExternalDataSourceRe
 
 	public override void Write(Utf8JsonWriter writer, ExternalDataSourceRef value, JsonSerializerOptions options)
 	{
-		string raw = $"window.panoramicDataECharts.getDataSource('{value.FetchId}')";
-		if (value.Path != null)
+	string raw = $"window.panoramicDataECharts.getDataSource('{value.FetchId}')";
+	if (value.Path != null)
+	{
+		if (!value.Path.StartsWith('.'))
 		{
-			if (!value.Path.StartsWith('.'))
-				raw += '.';
-			raw += value.Path;
+			raw += '.';
 		}
 
-		writer.WriteRawValue(raw, skipInputValidation: true);
+		raw += value.Path;
+	}		writer.WriteRawValue(raw, skipInputValidation: true);
 	}
 }

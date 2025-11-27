@@ -25,20 +25,20 @@ internal abstract class BasePhase
 		// special handling for 'anyOf' arrays
 		if (value.TryGetProperty("anyOf", out var anyOfElement))
 		{
-			// generate child types
-			foreach (JsonElement anyOfItemElement in anyOfElement.EnumerateArray())
+		// generate child types
+		foreach (JsonElement anyOfItemElement in anyOfElement.EnumerateArray())
+		{
+			var anyOfType = GetAnyOfType(anyOfItemElement, propName);
+
+			// special case
+			if (anyOfType.Contains("xxx"))
 			{
-				var anyOfType = GetAnyOfType(anyOfItemElement, propName);
-
-				// special case
-				if (anyOfType.Contains("xxx"))
-					continue;
-
-				//Console.WriteLine($"---anyOf {propName} {anyOfType}");
-				_ = ParseObjectType(parent, anyOfType, anyOfItemElement, dataPrefix: anyOfType, typeGroup: propName);
+				continue;
 			}
 
-			return new SimpleType("object");
+			//Console.WriteLine($"---anyOf {propName} {anyOfType}");
+			_ = ParseObjectType(parent, anyOfType, anyOfItemElement, dataPrefix: anyOfType, typeGroup: propName);
+		}			return new SimpleType("object");
 		}
 
 		// special handling for "data" elements

@@ -172,17 +172,19 @@ internal class TypeCollection
 
 	public bool TryGetMappedEnumType(string name, string parentName, out MappedEnumType? mappedEnumType)
 	{
-		if (enumTypesMappedByName.TryGetValue(name, out var typeDict))
+	if (enumTypesMappedByName.TryGetValue(name, out var typeDict))
+	{
+		// specific mapping for the parent type
+		if (typeDict.TryGetValue(parentName, out mappedEnumType))
 		{
-			// specific mapping for the parent type
-			if (typeDict.TryGetValue(parentName, out mappedEnumType))
-				return true;
+			return true;
+		}
 
-			// non-specific mapping for the parent type
-			if (typeDict.TryGetValue("*", out mappedEnumType))
-				return true;
-
-			//TODO: sanity check for enum types
+		// non-specific mapping for the parent type
+		if (typeDict.TryGetValue("*", out mappedEnumType))
+		{
+			return true;
+		}			//TODO: sanity check for enum types
 		}
 
 		mappedEnumType = null;
