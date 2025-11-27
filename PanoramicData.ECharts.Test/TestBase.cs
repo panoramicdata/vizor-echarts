@@ -5,7 +5,7 @@ namespace PanoramicData.ECharts.Test;
 
 public class TestBase : IAsyncLifetime
 {
-	protected const string BaseUrl = "http://localhost:5185"; // Adjust port if needed
+	protected const string BaseUrl = "http://localhost:5185/example"; // Fixed: added /example prefix
 	protected const int DefaultTimeout = 10000; // 10 seconds
 
 	protected IPlaywright? Playwright { get; private set; }
