@@ -132,13 +132,4 @@ public class TestBase : IAsyncLifetime
 		var path = Path.Combine(screenshotsDir, filename);
 		await Page.ScreenshotAsync(new() { Path = path, FullPage = false });
 	}
-
-	ValueTask IAsyncLifetime.InitializeAsync() => ValueTask.CompletedTask;
-
-	ValueTask IAsyncDisposable.DisposeAsync()
-	{
-		GC.SuppressFinalize(this);
-
-		return ValueTask.CompletedTask;
-	}
 }
