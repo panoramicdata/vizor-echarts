@@ -51,3 +51,63 @@ This is PanoramicData.ECharts (Vizor ECharts), a Blazor component library that p
 - JavaScript interop for ECharts functionality
 - Blazor component lifecycle management
 - Type-safe bindings generation
+
+---
+
+## Project Tracking and Documentation
+
+### Master Plan Maintenance
+- **Location**: `MASTER_PLAN.md` (root) and `docs/PHASE_*.md` files
+- **Current Status**: ECharts 6.0 upgrade in progress (see MASTER_PLAN.md)
+
+### Session Documentation Requirements
+When completing work in any session, **always update both**:
+
+1. **Individual Phase Documents** (`docs/PHASE_*.md`)
+   - Mark completed tasks with ?
+   - Update status (? Complete | ?? In Progress | ? Pending)
+   - Add results, findings, or artifacts created
+   - Update completion criteria
+
+2. **Master Plan** (`MASTER_PLAN.md`)
+   - Update phase status in the Phase Summary table
+   - Update "Current Progress" section
+   - Move completed items from "In Progress" to "Completed"
+   - Update blocking issues if resolved
+   - Update time estimates if needed
+
+### Documentation Update Checklist
+At the end of each significant work session:
+- [ ] Updated relevant `docs/PHASE_*.md` file(s)
+- [ ] Updated `MASTER_PLAN.md` Phase Summary table
+- [ ] Updated `MASTER_PLAN.md` Current Progress section
+- [ ] Committed changes with descriptive message
+- [ ] Verified links between documents are correct
+
+### When to Update
+- ? After completing a phase or sub-phase
+- ? After fixing critical bugs
+- ? After making significant progress on a task
+- ? After discovering new issues or blockers
+- ? At the end of each work session
+- ? Don't update for minor code tweaks or exploratory work
+
+### Example Update Pattern
+```markdown
+# In docs/PHASE_XX.md
+- [x] ? Task completed successfully
+  - Result: XYZ achieved
+  - Artifacts: File.cs created
+
+# In MASTER_PLAN.md
+| 11 | Build and Package | ? Complete | 2-3 hours | [PHASE_11](docs/PHASE_11_BUILD_AND_PACKAGE.md) |
+```
+
+### Commit Message Format
+When updating documentation:
+```
+Update MASTER_PLAN and Phase X: [Brief description of completion]
+
+- Completed [task name]
+- Updated status to [new status]
+- [Any notable findings or next steps]
