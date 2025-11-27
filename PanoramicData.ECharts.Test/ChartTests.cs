@@ -93,7 +93,7 @@ public class ChartTests : TestBase
 	[Fact]
 	public async Task ParameterSetSampleChart_DynamicUpdate_Works()
 	{
-		await Page.GotoAsync($"{BaseUrl}/misc/parameterset");
+		await Page.GotoAsync($"{BaseUrl}/misc/parameters");
 		await WaitForChartAsync();
 
 		// Take initial screenshot

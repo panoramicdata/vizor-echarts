@@ -21,7 +21,7 @@ public class AllChartsTests : TestBase
 			// Pie Charts
 			{ "pie", "simple", "SimplePieChart" },
 			{ "pie", "half-doughnut", "HalfDoughnutChart" },
-			{ "pie", "rounded-doughnut", "RoundedDoughnutChart" },
+			{ "pie", "doughnut-rounded", "RoundedDoughnutChart" },
 
 			// Scatter Charts
 			{ "scatter", "simple", "SimpleScatterChart" },
@@ -62,7 +62,7 @@ public class AllChartsTests : TestBase
 
 			// Advanced Features
 			{ "misc", "dataloader", "DataLoaderSampleChart" },
-			{ "misc", "parameterset", "ParameterSetSampleChart" },
+			{ "misc", "parameters", "ParameterSetSampleChart" },
 			{ "misc", "refresh", "RefreshSampleChart" },
 			{ "misc", "multiaxis", "MultiAxisSampleChart" },
 			{ "misc", "colorgradient", "ColorGradientBarChart" },
