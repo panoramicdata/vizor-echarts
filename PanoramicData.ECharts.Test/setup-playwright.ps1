@@ -52,18 +52,18 @@ Write-Information "✓ Browsers installed successfully" -InformationAction Conti
 Write-Information ""
 
 # Summary
-Write-Host "==================================================" -ForegroundColor Cyan
-Write-Host "  Installation Complete!" -ForegroundColor Green
-Write-Host "==================================================" -ForegroundColor Cyan
-Write-Host ""
-Write-Host "Next steps:" -ForegroundColor Yellow
-Write-Host "1. Start the demo application:" -ForegroundColor White
-Write-Host "   cd ..\PanoramicData.ECharts.Demo" -ForegroundColor Gray
-Write-Host "   dotnet run" -ForegroundColor Gray
-Write-Host ""
-Write-Host "2. In another terminal, run the tests:" -ForegroundColor White
-Write-Host "   cd PanoramicData.ECharts.Test" -ForegroundColor Gray
-Write-Host "   dotnet test" -ForegroundColor Gray
-Write-Host ""
-Write-Host "For more information, see README.md in this directory." -ForegroundColor Cyan
-Write-Host ""
+Write-Information "==================================================" -InformationAction Continue
+Write-Information "  Installation Complete!" -InformationAction Continue
+Write-Information "==================================================" -InformationAction Continue
+Write-Information "" -InformationAction Continue
+Write-Information "Next steps:" -InformationAction Continue
+Write-Information "1. Start the demo application:" -InformationAction Continue
+Write-Information "   cd ..\PanoramicData.ECharts.Demo" -InformationAction Continue
+Write-Information "   dotnet run" -InformationAction Continue
+Write-Information "" -InformationAction Continue
+Write-Information "2. In another terminal, run the tests:" -InformationAction Continue
+Write-Information "   cd PanoramicData.ECharts.Test" -InformationAction Continue
+Write-Information "   dotnet test" -InformationAction Continue
+Write-Information "" -InformationAction Continue
+Write-Information "For more information, see README.md in this directory." -InformationAction Continue
+Write-Information "" -InformationAction Continue

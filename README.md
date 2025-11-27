@@ -51,9 +51,14 @@ Add the JavaScript bundle to your `_Host.cshtml`, `_Layout.cshtml`, or `App.razo
 <!-- Option 2: Minified bundle (recommended for production) -->
 <script src="_content/PanoramicData.ECharts/js/panoramicdata-echarts-bundle-min.js"></script>
 
-<!-- Option 3: Interop only (requires manual ECharts inclusion) -->
-<script src="_content/PanoramicData.ECharts/js/panoramicdata-echarts-interop.js"></script>
+<!-- Option 3: Wrapper only (requires manual ECharts inclusion) -->
+<script src="_content/PanoramicData.ECharts/js/panoramicdata-echarts.js"></script>
+
+<!-- Option 4: Minified wrapper (recommended for custom builds) -->
+<script src="_content/PanoramicData.ECharts/js/panoramicdata-echarts-min.js"></script>
 ```
+
+**Note**: JavaScript file names changed in v6.0.0 from `vizor-echarts-*` to `panoramicdata-echarts-*`. See [Migration Guide](#migration-guide) for upgrade instructions.
 
 See the [demo application example](https://github.com/panoramicdata/PanoramicData.ECharts/blob/main/PanoramicData.ECharts.Demo/Pages/_Host.cshtml).
 
@@ -246,6 +251,58 @@ private async Task UpdateChartAsync()
 - **[ECharts Cheat Sheet](https://echarts.apache.org/en/cheat-sheet.html)** - Quick reference guide
 - **[ECharts Examples](https://echarts.apache.org/examples/en/index.html)** - Interactive examples gallery
 - **[Demo Application](https://github.com/panoramicdata/PanoramicData.ECharts/tree/main/PanoramicData.ECharts.Demo)** - Comprehensive examples in C#
+
+## Migration Guide
+
+### Upgrading from v5.x to v6.0
+
+#### Breaking Changes
+
+**JavaScript File Names Changed**
+
+The JavaScript file names have been renamed to match the PanoramicData.ECharts branding:
+
+| Old Name (v5.x) | New Name (v6.0+) |
+|-----------------|------------------|
+| `vizor-echarts.js` | `panoramicdata-echarts.js` |
+| `vizor-echarts-min.js` | `panoramicdata-echarts-min.js` |
+| `vizor-echarts-bundle.js` | `panoramicdata-echarts-bundle.js` |
+| `vizor-echarts-bundle-min.js` | `panoramicdata-echarts-bundle-min.js` |
+
+**Update Required**:
+```html
+<!-- OLD (v5.x) -->
+<script src="_content/PanoramicData.ECharts/js/vizor-echarts-bundle-min.js"></script>
+
+<!-- NEW (v6.0+) -->
+<script src="_content/PanoramicData.ECharts/js/panoramicdata-echarts-bundle-min.js"></script>
+```
+
+**JavaScript Global Object Changed**
+
+If you have custom JavaScript interop code:
+
+```javascript
+// OLD (v5.x)
+window.vizorECharts.getDataSource([...])
+
+// NEW (v6.0+)
+window.panoramicDataECharts.getDataSource([...])
+```
+
+#### Non-Breaking Changes
+
+- ? **C# API**: No changes - all existing C# code remains compatible
+- ? **Chart Options**: No changes - all option structures unchanged
+- ? **Component Properties**: No changes - all EChart component properties work as before
+- ? **ECharts Upgraded**: Now ships with Apache ECharts 6.0.0 (performance improvements)
+
+#### New Features in v6.0
+
+- ? **Symbol Packages**: Debugging symbols (.snupkg) now published for better debugging experience
+- ? **Source Link**: Step through library source code during debugging
+- ? **Performance**: Improved rendering performance from ECharts 6.0.0 engine
+- ? **Versioning**: Now using Nerdbank.GitVersioning for consistent versioning
 
 ## Contributing & Support
 
