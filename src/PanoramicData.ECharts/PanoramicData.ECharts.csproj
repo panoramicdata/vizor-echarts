@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+		<Authors>Panoramic Data Limited, DataHint BV, Ben Motmans</Authors>
+		<Company>Panoramic Data Limited</Company>
+		<Copyright>Copyright © Panoramic Data Limited 2025</Copyright>
+
+		<Product>Vizor ECharts components for Blazor</Product>
+		<ProductName>PanoramicData.ECharts</ProductName>
+		<Version>$(Version)</Version>
+		<ProductVersion>$(Version)</ProductVersion>
+		<AssemblyVersion>$(Version)</AssemblyVersion>
+		<FileVersion>$(Version)</FileVersion>
+
+		<PackageProjectUrl>https://github.com/datahint-eu/vizor-echarts</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/datahint-eu/vizor-echarts</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>blazor;echarts;apache;chart;library;vizor</PackageTags>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<Description>Blazor wrapper for Apache ECharts.</Description>
+
+		<!-- no warnings for missing XML docs -->
+		<NoWarn>$(NoWarn);1591</NoWarn>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>PanoramicData.ECharts.Net90</Title>
+		<PackageId>$(AssemblyName).Net90</PackageId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\.editorconfig" Link=".editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="package.json" />
+		<None Include="gulpfile.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components" Version="10.0.0" />
+		<PackageReference Include="Microsoft.JSInterop" Version="10.0.0" />
+		<PackageReference Include="Nerdbank.GitVersioning" Version="3.9.50">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<Target Name="PublishAfterPackAutoFail" AfterTargets="Pack" Condition="'$(Configuration)' != 'Release' ">
+		<Error Text="You must pack in Release mode" />
+	</Target>
+
+</Project>

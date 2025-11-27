@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="global.json" />
+    <File Path="version.json" />
+  </Folder>
+  <Project Path="PanoramicData.ECharts.BindingGenerator/PanoramicData.ECharts.BindingGenerator.csproj" />
+  <Project Path="PanoramicData.ECharts.Demo/PanoramicData.ECharts.Demo.csproj" />
+  <Project Path="PanoramicData.ECharts.Samples/PanoramicData.ECharts.Samples.csproj" />
+  <Project Path="PanoramicData.ECharts.Sandbox/PanoramicData.ECharts.Sandbox.csproj" />
+  <Project Path="PanoramicData.ECharts/PanoramicData.ECharts.csproj" />
+</Solution>

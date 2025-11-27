@@ -1,0 +1,44 @@
+﻿@using PanoramicData.ECharts;
+
+<PanoramicData.ECharts.EChart Options="@options" Width="800px" Height="800px" />
+
+@code {
+
+	// see https://echarts.apache.org/examples/en/editor.html?c=sankey-simple
+
+	private ChartOptions options = new()
+		{
+			Series = new()
+			{
+				new SankeySeries()
+				{
+					Emphasis = new()
+					{
+						Focus = "adjacency"
+					},
+					Data = new SankeySeriesData[]
+					{
+						CreateData("a"),
+						CreateData("b"),
+						CreateData("a1"),
+						CreateData("a2"),
+						CreateData("b1"),
+						CreateData("c")
+					},
+					Links = new SankeySeriesLink[]
+					{
+						CreateLink("a", "a1", 5),
+						CreateLink("a", "a2", 3),
+						CreateLink("b", "b1", 8),
+						CreateLink("a", "b1", 3),
+						CreateLink("b1", "a1", 1),
+						CreateLink("b1", "c", 2)
+					}
+				}
+			}
+		};
+
+	private static SankeySeriesData CreateData(string name) => new SankeySeriesData() { Name = name };
+
+	private static SankeySeriesLink CreateLink(string source, string target, int value) => new SankeySeriesLink() { Source = source, Target = target, Value = value };
+}

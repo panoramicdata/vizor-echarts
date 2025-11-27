@@ -1,0 +1,23 @@
+﻿<div>
+	<h2>@Title</h2>
+	<PanoramicData.ECharts.Demo.Components.GithubLink SourceLink="@SourceLink" />
+	@if (SubTitle != null)
+	{
+		<br />
+		<span class="text-muted">@SubTitle</span>
+	}
+</div>
+<hr />
+<br />
+
+@code {
+
+	[Parameter, EditorRequired]
+	public string Title { get; set; } = default!;
+
+	[Parameter]
+	public string? SubTitle { get; set; }
+
+	[Parameter, EditorRequired]
+	public Type SourceLink { get; set; } = default!;
+}

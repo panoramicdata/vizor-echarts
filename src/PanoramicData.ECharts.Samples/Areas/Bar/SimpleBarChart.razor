@@ -1,0 +1,28 @@
+﻿@using PanoramicData.ECharts;
+
+<PanoramicData.ECharts.EChart Options="@options" Width="800px" Height="400px" />
+
+@code {
+
+	// see https://echarts.apache.org/examples/en/editor.html?c=bar-simple
+
+	private ChartOptions options = new()
+		{
+			XAxis = new()
+			{
+				Type = AxisType.Category,
+				Data = new string[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" }
+			},
+			YAxis = new()
+			{
+				Type = AxisType.Value
+			},
+			Series = new()
+			{
+				new BarSeries()
+				{
+					Data = new int[] { 120, 200, 150, 80, 70, 110, 130 }
+				}
+			}
+		};
+}
