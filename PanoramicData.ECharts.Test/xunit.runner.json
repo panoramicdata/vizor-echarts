@@ -1,16 +1,16 @@
 {
   "$schema": "https://xunit.net/schema/current/xunit.runner.schema.json",
-  
+
   // Set to true to allow test collections to run in parallel
-  "parallelizeTestCollections": true, 
-  
+  "parallelizeTestCollections": true,
+
   // Set the maximum number of parallel threads to 4
   "maxParallelThreads": 4,
-  
-  // This is the "fail fast" setting. 
+
+  // This is the "fail fast" setting.
   // It stops the test runner after the first test failure is reported.
   "stopOnFail": true,
-  
+
   "parallelizeAssembly": false,
   "methodDisplay": "method",
   "methodDisplayOptions": "all"
