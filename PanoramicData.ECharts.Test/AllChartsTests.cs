@@ -14,8 +14,8 @@ public class AllChartsTests : TestBase
 
 			// Bar Charts
 			{ "bar", "simple", "SimpleBarChart" },
-			{ "bar", "horizontal-stacked", "HorizontalStackedBarChart" },
-			{ "bar", "dataset", "SimpleDatasetBarChart" },
+			{ "bar", "stacked-h", "HorizontalStackedBarChart" },
+			{ "bar", "simple-dataset", "SimpleDatasetBarChart" },
 			{ "bar", "stacked-timeseries", "StackedBarTimeSeriesChart" },
 
 			// Pie Charts
@@ -30,21 +30,21 @@ public class AllChartsTests : TestBase
 
 			// Geo/Map Charts
 			{ "geo", "usa", "UsaGeoMap" },
-			{ "geo", "belgian", "BelgianMunicipalityMap" },
-			{ "geo", "flights", "FlightSeatsGeoMap" },
+			{ "geo", "belgium", "BelgianMunicipalityMap" },
+			{ "geo", "flight-seats", "FlightSeatsGeoMap" },
 
 			// Heatmap Charts
 			{ "heatmap", "simple", "SimpleHeatmapChart" },
 			{ "heatmap", "year", "YearHeatmapChart" },
 			{ "heatmap", "multi-year", "MultiYearHeatmapChart" },
-			{ "heatmap", "visits", "VisitsPerDayHeatmapChart" },
+			{ "heatmap", "daily-visits", "VisitsPerDayHeatmapChart" },
 
 			// Other Chart Types
 			{ "candlestick", "simple", "SimpleCandlestickChart" },
 			{ "radar", "simple", "SimpleRadarChart" },
 			{ "graph", "simple", "SimpleGraphChart" },
 			{ "graph", "force-layout", "ForceLayoutGraphChart" },
-			{ "tree", "left-to-right", "TreeLeftToRightChart" },
+			{ "tree", "ltr", "TreeLeftToRightChart" },
 			{ "treemap", "simple", "SimpleTreeMapChart" },
 			{ "sunburst", "simple", "SimpleSunburstChart" },
 			{ "parallel", "simple", "SimpleParallelChart" },
@@ -52,7 +52,7 @@ public class AllChartsTests : TestBase
 			{ "sankey", "levels", "SankeyWithLevelsChart" },
 			{ "funnel", "simple", "SimpleFunnelChart" },
 			{ "gauge", "temp", "TempGaugeChart" },
-			{ "pictorialbar", "simple", "SimplePictorialBarChart" },
+			{ "pictorial-bar", "simple", "SimplePictorialBarChart" },
 			{ "themeriver", "simple", "SimpleThemeRiverChart" },
 
 			// Area Charts
@@ -64,8 +64,8 @@ public class AllChartsTests : TestBase
 			{ "misc", "dataloader", "DataLoaderSampleChart" },
 			{ "misc", "parameters", "ParameterSetSampleChart" },
 			{ "misc", "refresh", "RefreshSampleChart" },
-			{ "misc", "multiaxis", "MultiAxisSampleChart" },
-			{ "misc", "colorgradient", "ColorGradientBarChart" },
+			{ "misc", "multi-axis", "MultiAxisSampleChart" },
+			{ "misc", "color-gradient", "ColorGradientBarChart" },
 			{ "misc", "toolbox", "ToolboxSampleChart" },
 		};
 
