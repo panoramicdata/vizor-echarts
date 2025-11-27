@@ -21,19 +21,19 @@ var path = require('path'),
 	minify = require('gulp-minify');
 var exec = require("child_process").exec;
 
-var vizorScripts = './Scripts';
+var scriptsDir = './Scripts';
 var wwwroot = path.resolve(__dirname, "wwwroot");
 var libroot = path.resolve(__dirname, "./node_modules");
 
 
 var srcPaths = {
 	js: [
-		path.resolve(vizorScripts, 'vizor-echarts.js'),
+		path.resolve(scriptsDir, 'panoramicdata-echarts.js'),
 	],
 	jsBundle: [
 		path.resolve(libroot, 'echarts/dist/echarts.min.js'),
 		path.resolve(libroot, 'echarts-stat/dist/ecStat.min.js'),
-		path.resolve(vizorScripts, 'vizor-echarts.js'),
+		path.resolve(scriptsDir, 'panoramicdata-echarts.js'),
 	]
 };
 
@@ -51,14 +51,14 @@ gulp.task('clean', () => {
 
 gulp.task('buildJs', () => {
 	return gulp.src(srcPaths.js)
-		.pipe(concat('vizor-echarts.js'))
+		.pipe(concat('panoramicdata-echarts.js'))
 		.pipe(minify())
 		.pipe(gulp.dest(destPaths.js))
 });
 
 gulp.task('buildJsBundle', () => {
 	return gulp.src(srcPaths.jsBundle)
-		.pipe(concat('vizor-echarts-bundle.js'))
+		.pipe(concat('panoramicdata-echarts-bundle.js'))
 		.pipe(minify())
 		.pipe(gulp.dest(destPaths.js))
 });

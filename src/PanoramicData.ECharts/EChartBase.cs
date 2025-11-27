@@ -90,7 +90,7 @@ public abstract class EChartBase : ComponentBase, IAsyncDisposable
 			// remove the chart from a group (if needed)
 			Group?.Remove(this);
 
-			await JSRuntime.InvokeVoidAsync("vizorECharts.disposeChart", Id);
+			await JSRuntime.InvokeVoidAsync("panoramicDataECharts.disposeChart", Id);
 		}
 		catch { }
 	}
@@ -101,7 +101,7 @@ public abstract class EChartBase : ComponentBase, IAsyncDisposable
 
 		try
 		{
-			await JSRuntime.InvokeVoidAsync("vizorECharts.clearChart", Id);
+			await JSRuntime.InvokeVoidAsync("panoramicDataECharts.clearChart", Id);
 		}
 		catch { }
 	}
