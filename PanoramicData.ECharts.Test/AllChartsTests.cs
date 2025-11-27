@@ -26,7 +26,7 @@ public class AllChartsTests : TestBase
 			// Scatter Charts
 			{ "scatter", "simple", "SimpleScatterChart" },
 			{ "scatter", "punchcard", "PunchCardScatterChart" },
-			{ "scatter", "clustered", "ClusteredScatterChart" },
+			{ "scatter", "cluster", "ClusteredScatterChart" },
 
 			// Geo/Map Charts
 			{ "geo", "usa", "UsaGeoMap" },
