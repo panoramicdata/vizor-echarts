@@ -8,6 +8,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+$InformationPreference = 'Continue'
 $OriginalLocation = Get-Location
 
 # ANSI color codes for output
@@ -22,7 +23,7 @@ function Write-ColorOutput {
         [string]$Message,
         [string]$Color = $Reset
     )
-    Write-Host "$Color$Message$Reset"
+    Write-Information "$Color$Message$Reset" -InformationAction Continue
 }
 
 function Write-Step {
@@ -70,8 +71,8 @@ function Test-NuGetApiKey {
 
     if (-not (Test-Path $keyFile)) {
         Write-Error "NuGet API key file not found: $keyFile"
-        Write-Host "`nPlease create a file named 'nuget-key.txt' in the repository root containing your NuGet API key."
-        Write-Host "This file is .gitignored and will not be committed."
+        Write-Information "`nPlease create a file named 'nuget-key.txt' in the repository root containing your NuGet API key." -InformationAction Continue
+        Write-Information "This file is .gitignored and will not be committed." -InformationAction Continue
         throw "NuGet API key file not found"
     }
 
@@ -115,7 +116,7 @@ function Start-DemoServer {
     } -ArgumentList $demoProjectPath, $Configuration
 
     # Wait for server to start (max 30 seconds)
-    Write-Host "Waiting for demo server to start..."
+    Write-Information "Waiting for demo server to start..." -InformationAction Continue
     $maxWaitSeconds = 30
     $waited = 0
     $serverReady = $false
@@ -210,7 +211,7 @@ function Stop-DemoServer {
 function Publish-Package {
     param([string]$ApiKey)
 
-    Write-Step "Publishing package to NuGet..."
+    Write-Step "Publishing packages to NuGet..."
 
     $projectPath = Join-Path $PSScriptRoot "PanoramicData.ECharts\PanoramicData.ECharts.csproj"
 
@@ -218,37 +219,67 @@ function Publish-Package {
         throw "Project file not found: $projectPath"
     }
 
-    # Find the generated package
-    $packagePattern = Join-Path $PSScriptRoot "PanoramicData.ECharts\bin\$Configuration\*.nupkg"
-    $packages = Get-ChildItem -Path $packagePattern -ErrorAction SilentlyContinue
+    # Find the generated packages
+    $binPath = Join-Path $PSScriptRoot "PanoramicData.ECharts\bin\$Configuration"
+    $nupkgPattern = Join-Path $binPath "*.nupkg"
+    $snupkgPattern = Join-Path $binPath "*.snupkg"
+    
+    $packages = Get-ChildItem -Path $nupkgPattern -ErrorAction SilentlyContinue
+    $symbolPackages = Get-ChildItem -Path $snupkgPattern -ErrorAction SilentlyContinue
 
     if (-not $packages) {
-        throw "No NuGet package found at: $packagePattern"
+        throw "No NuGet package found at: $nupkgPattern"
     }
 
-    # Get the most recent package
+    # Get the most recent packages
     $package = $packages | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+    $symbolPackage = $symbolPackages | Sort-Object LastWriteTime -Descending | Select-Object -First 1
 
-    Write-Host "Package: $($package.Name)"
-    Write-Host "Size: $([math]::Round($package.Length / 1MB, 2)) MB"
-    Write-Host ""
+    Write-Information "Package: $($package.Name)" -InformationAction Continue
+    Write-Information "Size: $([math]::Round($package.Length / 1MB, 2)) MB" -InformationAction Continue
+    
+    if ($symbolPackage) {
+        Write-Information "Symbol Package: $($symbolPackage.Name)" -InformationAction Continue
+        Write-Information "Size: $([math]::Round($symbolPackage.Length / 1KB, 2)) KB" -InformationAction Continue
+    }
+    else {
+        Write-Warning "No symbol package (.snupkg) found - debugging experience will be limited"
+    }
+    
+    Write-Information "" -InformationAction Continue
 
     # Ask for confirmation
-    $confirmation = Read-Host "Publish this package to NuGet.org? (yes/no)"
+    $confirmation = Read-Host "Publish these packages to NuGet.org? (yes/no)"
 
     if ($confirmation -ne "yes") {
         throw "Publication cancelled by user"
     }
 
-    # Publish to NuGet
+    # Publish main package to NuGet
+    Write-Information "`nPublishing main package..." -InformationAction Continue
     dotnet nuget push $package.FullName --api-key $ApiKey --source https://api.nuget.org/v3/index.json
 
     if ($LASTEXITCODE -ne 0) {
         throw "NuGet publish failed with exit code $LASTEXITCODE"
     }
 
-    Write-Success "Package published successfully to NuGet.org"
-    Write-Host ""
+    Write-Success "Main package published successfully"
+
+    # Publish symbol package if it exists
+    if ($symbolPackage) {
+        Write-Information "`nPublishing symbol package..." -InformationAction Continue
+        dotnet nuget push $symbolPackage.FullName --api-key $ApiKey --source https://api.nuget.org/v3/index.json
+
+        if ($LASTEXITCODE -ne 0) {
+            Write-Warning "Symbol package publish failed with exit code $LASTEXITCODE (non-fatal)"
+        }
+        else {
+            Write-Success "Symbol package published successfully"
+        }
+    }
+
+    Write-Success "Package publication complete"
+    Write-Information "" -InformationAction Continue
     Write-ColorOutput "Package URL: https://www.nuget.org/packages/PanoramicData.ECharts/" $Green
 }
 

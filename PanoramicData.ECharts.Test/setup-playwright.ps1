@@ -1,53 +1,55 @@
 # Playwright Browser Installation Script
 # Run this script from the PanoramicData.ECharts.Test directory
 
-Write-Host "==================================================" -ForegroundColor Cyan
-Write-Host "  Playwright Browser Installation for E2E Tests" -ForegroundColor Cyan
-Write-Host "==================================================" -ForegroundColor Cyan
-Write-Host ""
+$InformationPreference = 'Continue'
+
+Write-Information "==================================================" -InformationAction Continue
+Write-Information "  Playwright Browser Installation for E2E Tests" -InformationAction Continue
+Write-Information "==================================================" -InformationAction Continue
+Write-Information ""
 
 # Check if we're in the correct directory
 if (-not (Test-Path "PanoramicData.ECharts.Test.csproj")) {
-    Write-Host "ERROR: Please run this script from the PanoramicData.ECharts.Test directory" -ForegroundColor Red
+    Write-Information "ERROR: Please run this script from the PanoramicData.ECharts.Test directory" -InformationAction Continue
     exit 1
 }
 
 # Build the project first
-Write-Host "Step 1: Building test project..." -ForegroundColor Yellow
+Write-Information "Step 1: Building test project..." -InformationAction Continue
 dotnet build
 
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "ERROR: Build failed. Please fix compilation errors first." -ForegroundColor Red
+    Write-Information "ERROR: Build failed. Please fix compilation errors first." -InformationAction Continue
     exit 1
 }
 
-Write-Host "? Build successful" -ForegroundColor Green
-Write-Host ""
+Write-Information "✓ Build successful" -InformationAction Continue
+Write-Information ""
 
 # Check if playwright.ps1 exists
 $playwrightScript = "bin\Debug\net10.0\playwright.ps1"
 
 if (-not (Test-Path $playwrightScript)) {
-    Write-Host "ERROR: Playwright script not found at $playwrightScript" -ForegroundColor Red
-    Write-Host "Make sure the Microsoft.Playwright package is installed." -ForegroundColor Red
+    Write-Information "ERROR: Playwright script not found at $playwrightScript" -InformationAction Continue
+    Write-Information "Make sure the Microsoft.Playwright package is installed." -InformationAction Continue
     exit 1
 }
 
 # Install browsers
-Write-Host "Step 2: Installing Playwright browsers..." -ForegroundColor Yellow
-Write-Host "This may take a few minutes on first run..." -ForegroundColor Gray
-Write-Host ""
+Write-Information "Step 2: Installing Playwright browsers..." -InformationAction Continue
+Write-Information "This may take a few minutes on first run..." -InformationAction Continue
+Write-Information ""
 
 & pwsh $playwrightScript install
 
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "ERROR: Browser installation failed." -ForegroundColor Red
+    Write-Information "ERROR: Browser installation failed." -InformationAction Continue
     exit 1
 }
 
-Write-Host ""
-Write-Host "? Browsers installed successfully" -ForegroundColor Green
-Write-Host ""
+Write-Information "" -InformationAction Continue
+Write-Information "✓ Browsers installed successfully" -InformationAction Continue
+Write-Information ""
 
 # Summary
 Write-Host "==================================================" -ForegroundColor Cyan
