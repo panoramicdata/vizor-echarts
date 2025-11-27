@@ -81,6 +81,7 @@ At the end of each significant work session:
 - [ ] Updated relevant `docs/PHASE_*.md` file(s)
 - [ ] Updated `MASTER_PLAN.md` Phase Summary table
 - [ ] Updated `MASTER_PLAN.md` Current Progress section
+- [ ] Updated `.slnx` file "Project Planning" solution items (if phase documents added/modified)
 - [ ] Committed changes with descriptive message
 - [ ] Verified links between documents are correct
 
