@@ -1,11 +1,29 @@
 <Solution>
+  <Folder Name="/Project Planning/">
+    <File Path="docs/PHASE_01_PRE_UPDATE_ASSESSMENT.md" />
+    <File Path="docs/PHASE_02_UPDATE_DEPENDENCIES.md" />
+    <File Path="docs/PHASE_03.md" />
+    <File Path="docs/PHASE_04.md" />
+    <File Path="docs/PHASE_05.md" />
+    <File Path="docs/PHASE_06_UPDATE_AND_TEST_SAMPLES.md" />
+    <File Path="docs/PHASE_07_UPDATE_DEMO_APPLICATION.md" />
+    <File Path="docs/PHASE_08_UPDATE_DOCUMENTATION.md" />
+    <File Path="docs/PHASE_09_BROWSER_COMPATIBILITY.md" />
+    <File Path="docs/PHASE_10_PERFORMANCE_TESTING.md" />
+    <File Path="docs/PHASE_11_BUILD_AND_PACKAGE.md" />
+    <File Path="docs/PHASE_12_QUALITY_ASSURANCE.md" />
+    <File Path="docs/PHASE_13_DEPLOYMENT_PREPARATION.md" />
+    <File Path="docs/PHASE_14_DEPLOYMENT.md" />
+    <File Path="docs/PHASE_15_POST_DEPLOYMENT_MONITORING.md" />
+    <File Path="docs/PHASE_16_OUTSTANDING_ISSUES.md" />
+    <File Path="MASTER_PLAN.md" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
     <File Path=".github/copilot-instructions.md" />
     <File Path=".gitignore" />
     <File Path="global.json" />
     <File Path="LICENSE" />
-    <File Path="MASTER_PLAN.md" />
     <File Path="NOTICE" />
     <File Path="nuget-key.txt" />
     <File Path="Publish.ps1" />
