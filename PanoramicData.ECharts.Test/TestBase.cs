@@ -6,7 +6,7 @@ namespace PanoramicData.ECharts.Test;
 public class TestBase : IAsyncLifetime
 {
 	protected const string BaseUrl = "http://localhost:5185/example"; // Fixed: added /example prefix
-	protected const int DefaultTimeout = 10000; // 10 seconds
+	protected const int DefaultTimeout = 20000; // 20 seconds - increased for chart initialization
 
 	protected IPlaywright? Playwright { get; private set; }
 	protected IBrowser? Browser { get; private set; }
@@ -71,10 +71,20 @@ public class TestBase : IAsyncLifetime
 		// Wait for Blazor to finish loading
 		await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
 
-		// Wait for chart container to appear
-		await Page.WaitForSelectorAsync("[id^='chart']", new() { State = WaitForSelectorState.Attached });
+		// Wait for chart container DIV to appear
+		await Page.WaitForSelectorAsync("[id^='chart']", new()
+		{
+			State = WaitForSelectorState.Attached
+		});
 
-		// Give ECharts time to render (animations, etc.)
+		// CRITICAL: Wait for ECharts to create the canvas inside the div
+		await Page.WaitForSelectorAsync("[id^='chart'] canvas", new()
+		{
+			State = WaitForSelectorState.Visible,
+			Timeout = 15000  // Give ECharts time to initialize
+		});
+
+		// Give ECharts animations time to complete
 		await Page.WaitForTimeoutAsync(500);
 	}
 
