@@ -18,9 +18,9 @@ This plan outlines the upgrade from ECharts 5.4.3 to 6.0.0 in the PanoramicData.
 |-------|-------|--------|----------|---------|
 | 1 | Pre-Update Assessment | ? Complete | 2-4 hours | [PHASE_01](docs/PHASE_01_PRE_UPDATE_ASSESSMENT.md) |
 | 2 | Update Dependencies | ? Complete | 30 min | [PHASE_02](docs/PHASE_02_UPDATE_DEPENDENCIES.md) |
-| 3 | Rebuild JavaScript Assets | ? Complete | 2-3 hours | [PHASE_03](docs/PHASE_03_REBUILD_JAVASCRIPT_ASSETS.md) |
-| 4 | Update C# Bindings | ? Complete | 1 hour | [PHASE_04](docs/PHASE_04_UPDATE_CSHARP_BINDINGS.md) |
-| 5 | Test JavaScript Interop | ? Complete | 3-4 hours | [PHASE_05](docs/PHASE_05_TEST_JAVASCRIPT_INTEROP.md) |
+| 3 | Rebuild JavaScript Assets | ? Complete | 2-3 hours | [PHASE_03](docs/PHASE_03.md) |
+| 4 | Update C# Bindings | ? Complete | 1 hour | [PHASE_04](docs/PHASE_04.md) |
+| 5 | Test JavaScript Interop | ? Complete | 3-4 hours | [PHASE_05](docs/PHASE_05.md) |
 | 6 | Update and Test Samples | ?? Mostly Complete | 2-3 hours | [PHASE_06](docs/PHASE_06_UPDATE_AND_TEST_SAMPLES.md) |
 | 7 | Update Demo Application | ? Complete | 1 hour | [PHASE_07](docs/PHASE_07_UPDATE_DEMO_APPLICATION.md) |
 | 8 | Update Documentation | ? Pending | 2-3 hours | [PHASE_08](docs/PHASE_08_UPDATE_DOCUMENTATION.md) |
