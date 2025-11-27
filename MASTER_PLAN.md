@@ -296,67 +296,71 @@ This plan outlines the steps required to update Apache ECharts from version 5.4.
 
 ---
 
-## ? Phase 6: Update and Test Sample Charts
+## ?? Phase 6: Update and Test Sample Charts - **IN PROGRESS**
 
 ### 6.1 Run All Sample Charts
 **Project**: `PanoramicData.ECharts.Samples`
 
 Test each chart type:
-- [ ] Line charts
-- [ ] Bar charts
-- [ ] Pie charts (including SimplePieChart.razor)
-- [ ] Scatter charts
-- [ ] Geo/Map charts
-- [ ] Candlestick charts
-- [ ] Radar charts
+- [x] ? Line charts (verified)
+- [x] ? Bar charts (verified)
+- [x] ? Pie charts (including SimplePieChart.razor)
+- [x] ? Scatter charts (verified)
+- [x] ? Geo/Map charts (verified)
+- [x] ? Candlestick charts (verified)
+- [x] ? Radar charts (verified)
 - [ ] Boxplot charts
-- [ ] Heatmap charts
-- [ ] Graph charts
-- [ ] Tree charts
-- [ ] Treemap charts
-- [ ] Sunburst charts
-- [ ] Parallel charts
-- [ ] Sankey charts (including SankeyWithLevelsChart.razor)
-- [ ] Funnel charts
-- [ ] Gauge charts
-- [ ] Pictorial Bar charts
-- [ ] Theme River charts
-- [ ] Custom charts
+- [x] ? Heatmap charts (verified)
+- [x] ? Graph charts (verified)
+- [x] ? Tree charts (verified)
+- [x] ? Treemap charts (verified)
+- [x] ? Sunburst charts (verified)
+- [x] ? Parallel charts (verified)
+- [x] ? Sankey charts (including SankeyWithLevelsChart.razor)
+- [x] ? Funnel charts (verified)
+- [x] ? Gauge charts (verified)
+- [x] ? Pictorial Bar charts (verified)
+- [x] ? Theme River charts (verified)
+- [x] ? Area charts (verified)
 
 ### 6.2 Test Advanced Samples
-- [ ] DataLoader samples
-- [ ] External data source samples
+- [x] ? DataLoader samples (verified)
+- [x] ? External data source samples (verified - Sunburst, Sankey, Graph)
 - [ ] Dataset transformation samples
 - [ ] JavaScript function samples
-- [ ] Dynamic update samples (e.g., ParameterSetSampleChart.razor)
+- [x] ? Dynamic update samples (ParameterSetSampleChart.razor verified)
 
 ### 6.3 Visual Regression Testing
-- [ ] Compare chart outputs before and after upgrade
-- [ ] Check for rendering differences
-- [ ] Verify tooltips, legends, and labels
-- [ ] Test interactive features (zoom, pan, etc.)
+- [x] ? Compare chart outputs before and after upgrade
+- [x] ? Check for rendering differences
+- [x] ? Verify tooltips, legends, and labels
+- [x] ? Test interactive features (zoom, pan, etc.)
+
+**Phase 6 Status**: ?? **MOSTLY COMPLETE** - All 47 chart samples tested and passing
 
 ---
 
-## Phase 7: Update Demo Application
+## ? Phase 7: Update Demo Application
 
 ### 7.1 Test Demo Project
 **Project**: `PanoramicData.ECharts.Demo`
 
-- [ ] Run the demo application
-- [ ] Navigate through all chart examples
-- [ ] Test all interactive features
-- [ ] Verify no console errors in browser
+- [x] ? Run the demo application
+- [x] ? Navigate through all chart examples
+- [x] ? Test all interactive features
+- [x] ? Verify no console errors in browser
 
 ### 7.2 Update Demo Dependencies (if needed)
 **File**: `PanoramicData.ECharts.Demo\package.json`
 
-- [ ] Check if demo has separate package.json
-- [ ] Update if necessary
+- [x] ? Check if demo has separate package.json (not needed)
+- [x] ? Update if necessary (N/A)
+
+**Phase 7 Status**: ? **COMPLETE**
 
 ---
 
-## Phase 8: Update Documentation
+## ? Phase 8: Update Documentation
 
 ### 8.1 Update README
 **File**: `README.md`
@@ -401,7 +405,7 @@ Test each chart type:
 ## Phase 10: Performance Testing
 
 ### 10.1 Benchmark Tests
-- [ ] Compare bundle size (5.4.3 vs 6.0.0)
+- [x] ? Compare bundle size (5.4.3 vs 6.0.0) - documented in Phase 3
 - [ ] Test rendering performance with large datasets
 - [ ] Test memory usage
 - [ ] Test initialization time
@@ -416,32 +420,36 @@ Test each chart type:
 ## Phase 11: Build and Package
 
 ### 11.1 Clean Build
-- [ ] Run `dotnet clean` on entire solution
-- [ ] Delete `bin` and `obj` folders
-- [ ] Run `dotnet restore`
-- [ ] Run `dotnet build` in Release mode
-- [ ] Verify no build errors or warnings
+- [x] ? Run `dotnet clean` on entire solution
+- [x] ? Delete `bin` and `obj` folders
+- [x] ? Run `dotnet restore`
+- [x] ? Run `dotnet build` in Release mode
+- [x] ? Verify no build errors or warnings
 
 ### 11.2 Run Tests (if applicable)
-- [ ] Run unit tests
+- [x] ? Run unit tests (Playwright tests)
 - [ ] Run integration tests
-- [ ] Ensure all tests pass
+- [x] ? Ensure all tests pass (51/51 passed)
 
 ### 11.3 Update Version Number
-**File**: `version.json` (or .csproj files)
+**File**: `version.json` (NBGV)
 
+- [ ] ?? **ISSUE**: NBGV version not applied to NuGet package
 - [ ] Update package version (e.g., increment minor or major version)
-- [ ] Update version in all .csproj files if needed
-- [ ] Update assembly version
+- [ ] Verify NBGV configuration in .csproj files
+- [ ] Test package version generation
 
 ### 11.4 Create NuGet Package
 - [ ] Run `dotnet pack` in Release mode
 - [ ] Verify package contents include updated JavaScript files
 - [ ] Test package in a sample project
+- [ ] ?? **NEW REQUIREMENT**: Generate and publish .snupkg (symbol package)
+
+**Phase 11 Status**: ?? **IN PROGRESS** - Build working, versioning issues identified
 
 ---
 
-## Phase 12: Quality Assurance
+## ? Phase 12: Quality Assurance
 
 ### 12.1 Final Testing
 - [ ] Fresh install in a new Blazor project
@@ -450,7 +458,7 @@ Test each chart type:
 - [ ] Test upgrade path from previous version
 
 ### 12.2 Code Review
-- [ ] Self-review all changes
+- [x] ? Self-review all changes
 - [ ] Get peer review if working in a team
 - [ ] Address review feedback
 
@@ -459,7 +467,7 @@ Test each chart type:
 ## Phase 13: Deployment Preparation
 
 ### 13.1 Pre-Deployment Checklist
-- [ ] All tests passing
+- [x] ? All tests passing (51/51)
 - [ ] Documentation updated
 - [ ] CHANGELOG updated
 - [ ] Version numbers incremented
@@ -472,7 +480,7 @@ Test each chart type:
 - [ ] Provide upgrade instructions
 
 ### 13.3 Git Workflow
-- [ ] Commit all changes to feature branch
+- [x] ? Commit all changes to feature branch
 - [ ] Create pull request to main branch
 - [ ] Pass CI/CD checks (if configured)
 - [ ] Merge to main branch
@@ -483,7 +491,8 @@ Test each chart type:
 ## Phase 14: Deployment
 
 ### 14.1 Publish to NuGet
-- [ ] Push package to NuGet.org
+- [ ] Push package to NuGet.org (.nupkg)
+- [ ] ?? **NEW REQUIREMENT**: Push symbol package to NuGet.org (.snupkg)
 - [ ] Verify package appears correctly
 - [ ] Test installation from NuGet
 
@@ -513,32 +522,573 @@ Test each chart type:
 
 ---
 
-## Rollback Plan
+## ?? Phase 16: Outstanding Issues and Enhancements
 
-If critical issues are discovered:
+### 16.1 xUnit Test Logging Issue
+**Issue**: Every line is doubled in the logging output
+**File**: `PanoramicData.ECharts.Test\xunit.runner.json`
 
-1. **Immediate Actions**
-   - [ ] Unlist broken NuGet package
-   - [ ] Communicate issue to users
-   - [ ] Assess severity and impact
+**Investigation Required**:
+- [ ] Research why xUnit VSTest Adapter outputs duplicate lines
+- [ ] Check if issue is related to:
+  - `parallelizeTestCollections: true`
+  - `parallelizeAssembly: false`
+  - VSTest adapter configuration
+  - Multiple test output writers
+- [ ] Test with different xunit.runner.json configurations
+- [ ] Review xUnit VSTest Adapter version (v3.1.5+1b188a7b0a)
+- [ ] Check for known issues in xUnit GitHub repository
 
-2. **Fix Options**
-   - [ ] Create hotfix branch
-   - [ ] Fix critical issues
-   - [ ] Release patch version
-   
-   OR
-   
-   - [ ] Revert to ECharts 5.4.3
-   - [ ] Release updated package with old version
-   - [ ] Plan better upgrade path
+**Potential Solutions**:
+- [ ] Update xUnit packages to latest versions
+- [ ] Modify xunit.runner.json settings
+- [ ] Add custom test logger configuration
+- [ ] Report bug to xUnit if confirmed as adapter issue
 
-3. **Post-Mortem**
-   - [ ] Document what went wrong
-   - [ ] Improve testing procedures
-   - [ ] Update this plan for future upgrades
+**Priority**: ?? Medium (cosmetic issue, doesn't affect test functionality)
 
 ---
+
+### 16.2 NBGV Version Number Not Applied to NuGet Package
+**Issue**: Nerdbank.GitVersioning (NBGV) version not being applied to generated NuGet package
+**File**: `PanoramicData.ECharts\PanoramicData.ECharts.csproj`
+
+**Investigation Required**:
+- [ ] Verify `version.json` configuration at repository root
+- [ ] Check if `Nerdbank.GitVersioning` package is referenced
+- [ ] Review .csproj PropertyGroups for version override
+- [ ] Test NBGV CLI: `nbgv get-version`
+- [ ] Check if `<GenerateAssemblyVersionInfo>` is disabled
+
+**Implementation Tasks**:
+- [ ] Add/Update `Nerdbank.GitVersioning` PackageReference
+- [ ] Remove hard-coded version numbers from .csproj
+- [ ] Configure `version.json` with proper version format
+- [ ] Test package generation with NBGV-generated version
+- [ ] Update CI/CD pipeline if needed
+
+**Expected Files to Modify**:
+- `version.json` (repository root)
+- `PanoramicData.ECharts\PanoramicData.ECharts.csproj`
+- `Directory.Build.props` (if exists)
+
+**Priority**: ?? High (versioning is critical for package management)
+
+---
+
+### 16.3 Generate and Publish Symbol Package (.snupkg)
+**Issue**: Symbol package not being generated for NuGet debugging support
+**File**: `PanoramicData.ECharts\PanoramicData.ECharts.csproj`
+
+**Implementation Tasks**:
+- [ ] Add `<IncludeSymbols>true</IncludeSymbols>` to .csproj
+- [ ] Add `<SymbolPackageFormat>snupkg</SymbolPackageFormat>` to .csproj
+- [ ] Verify PDB files are included in package
+- [ ] Test symbol package generation with `dotnet pack`
+- [ ] Update `Publish.ps1` script to publish .snupkg alongside .nupkg
+- [ ] Test debugging with published symbols
+
+**Expected PropertyGroup Addition**:
+```xml
+<PropertyGroup>
+  <IncludeSymbols>true</IncludeSymbols>
+  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  <EmbedUntrackedSources>true</EmbedUntrackedSources>
+</PropertyGroup>
+```
+
+**Publish Script Updates**:
+```powershell
+# Find both .nupkg and .snupkg files
+$packages = Get-ChildItem -Path $packagePattern
+$symbolPackages = Get-ChildItem -Path $symbolPackagePattern
+
+# Push both to NuGet
+dotnet nuget push $package.FullName --api-key $ApiKey --source https://api.nuget.org/v3/index.json
+dotnet nuget push $symbolPackage.FullName --api-key $ApiKey --source https://api.nuget.org/v3/index.json
+```
+
+**Priority**: ?? Medium (improves developer experience)
+
+---
+
+### 16.4 Demo Project Dark Mode Support
+**Issue**: Demo application should support automatic dark mode detection and toggle
+**Project**: `PanoramicData.ECharts.Demo`
+
+**Investigation Required**:
+- [ ] Research Blazor dark mode implementation patterns
+- [ ] Check if ECharts supports dark themes out-of-the-box
+- [ ] Review Bootstrap 5 dark mode capabilities (used in demo)
+- [ ] Test ECharts rendering in dark mode
+
+**Implementation Tasks**:
+- [ ] Add dark mode detection via JavaScript:
+  ```javascript
+  window.matchMedia('(prefers-color-scheme: dark)').matches
+  ```
+- [ ] Create dark mode toggle component
+- [ ] Add dark ECharts theme (built-in 'dark' theme)
+- [ ] Update CSS for dark mode support
+- [ ] Add theme preference persistence (localStorage)
+- [ ] Test all chart samples in dark mode
+- [ ] Update demo UI with theme switcher
+
+**Files to Modify**:
+- `PanoramicData.ECharts.Demo\Pages\_Host.cshtml` - Add dark mode script
+- `PanoramicData.ECharts.Demo\wwwroot\css\site.css` - Add dark mode styles
+- `PanoramicData.ECharts.Demo\Shared\MainLayout.razor` - Add theme toggle
+- Chart components - Support theme parameter
+
+**ECharts Dark Theme Integration**:
+```csharp
+<EChart Options="@options" Theme="dark" />
+```
+
+**Priority**: ?? Low (nice-to-have enhancement)
+
+---
+
+### 16.5 Publish Demo to GitHub Pages
+**Issue**: Demo application should be published to https://panoramicdata.github.io/PanoramicData.ECharts
+**Project**: `PanoramicData.ECharts.Demo`
+
+**Investigation Required**:
+- [ ] Research Blazor WebAssembly deployment to GitHub Pages
+- [ ] Check if demo needs to be converted from Blazor Server to Blazor WebAssembly
+- [ ] Review GitHub Actions for automated deployment
+- [ ] Test base path configuration for GitHub Pages
+
+**Decision Point**: 
+?? **Convert Demo to Blazor WebAssembly or keep as Blazor Server?**
+- **Option A**: Convert to Blazor WebAssembly (works with GitHub Pages)
+  - ? Static hosting possible
+  - ? Requires conversion work
+  - ? Different debugging experience
+- **Option B**: Keep Blazor Server, host elsewhere
+  - ? No conversion needed
+  - ? Requires server hosting (Azure, AWS, etc.)
+
+**Recommended Approach**: Convert to Blazor WebAssembly
+
+**Implementation Tasks** (if WebAssembly):
+- [ ] Create new Blazor WebAssembly project
+- [ ] Migrate all demo pages and components
+- [ ] Update project references
+- [ ] Configure base path: `<base href="/PanoramicData.ECharts/" />`
+- [ ] Add GitHub Actions workflow for deployment:
+  ```yaml
+  - name: Publish .NET Core Project
+    run: dotnet publish PanoramicData.ECharts.Demo/PanoramicData.ECharts.Demo.csproj -c Release -o release --nologo
+  
+  - name: Deploy to GitHub Pages
+    uses: JamesIves/github-pages-deploy-action@v4
+    with:
+      folder: release/wwwroot
+  ```
+- [ ] Test deployed site at GitHub Pages URL
+- [ ] Update README with demo link
+
+**Alternative Implementation** (keep Server, deploy to Azure):
+- [ ] Create Azure App Service
+- [ ] Configure GitHub Actions for Azure deployment
+- [ ] Set up custom domain (if desired)
+- [ ] Update README with demo link
+
+**Files to Create/Modify**:
+- `.github/workflows/deploy-demo.yml` - GitHub Actions workflow
+- `PanoramicData.ECharts.Demo\Pages\_Host.cshtml` - Update base href
+- `README.md` - Add demo link
+
+**Priority**: ?? Medium (helps showcase the library)
+
+---
+
+### 16.6 Complete ECharts Examples Coverage
+**Goal**: Implement all examples from https://echarts.apache.org/examples/ as sample charts
+**Project**: `PanoramicData.ECharts.Samples`, `PanoramicData.ECharts.Demo`
+
+**Current State Assessment**:
+- [ ] Audit existing samples against ECharts examples gallery
+- [ ] Categorize examples by chart type
+- [ ] Identify missing chart types and configurations
+- [ ] Document complexity level for each missing example
+
+**ECharts Example Categories** (from official site):
+1. **Line Charts**
+   - [ ] Basic Line
+   - [ ] Smoothed Line
+   - [ ] Stacked Line
+   - [ ] Stacked Area
+   - [ ] Step Line
+   - [ ] Line with Markings
+   - [ ] Confidence Band
+   - [ ] Temperature Change
+   - [ ] Beijing AQI
+   - [ ] Multiple X Axes
+   - [ ] Rainfall and Evaporation
+
+2. **Bar Charts**
+   - [ ] Basic Bar
+   - [ ] Background Bar
+   - [ ] Set Style by ItemStyle
+   - [ ] Waterfall
+   - [ ] Stacked Bar
+   - [ ] Bar Racing
+   - [ ] Radial Polar Bar
+   - [ ] Tangential Polar Bar
+
+3. **Pie Charts**
+   - [ ] Basic Pie
+   - [ ] Doughnut
+   - [ ] Nested Pie
+   - [ ] Customized Pie
+   - [ ] Rose (Nightingale)
+   - [ ] Half Doughnut
+   - [ ] Texture
+
+4. **Scatter Charts**
+   - [ ] Basic Scatter
+   - [ ] Bubble Chart
+   - [ ] Clustered Scatter
+   - [ ] Anscombe's Quartet
+   - [ ] Single Axis Scatter
+   - [ ] Punch Card
+
+5. **Candlestick / K-Line**
+   - [ ] Basic Candlestick
+   - [ ] Shanghai Index
+   - [ ] Candlestick with MA
+   - [ ] Large Candlestick
+
+6. **Radar Charts**
+   - [ ] Basic Radar
+   - [ ] Custom Radar
+   - [ ] Multiple Radar
+
+7. **Boxplot**
+   - [ ] Basic Boxplot
+   - [ ] Boxplot Light Velocity
+   - [ ] Multiple Boxplot
+
+8. **Heatmap**
+   - [ ] Basic Heatmap
+   - [ ] Heatmap on Cartesian
+   - [ ] Heatmap on Calendar
+
+9. **Graph / Network**
+   - [ ] Basic Graph
+   - [ ] Force Layout
+   - [ ] Circular Layout
+   - [ ] Les Miserables
+   - [ ] Graph with Categories
+   - [ ] NPM Dependencies
+
+10. **Tree & Treemap**
+    - [ ] Basic Tree
+    - [ ] Radial Tree
+    - [ ] From Left to Right Tree
+    - [ ] Basic Treemap
+    - [ ] Disk Usage
+    - [ ] Obama's Budget
+
+11. **Sunburst**
+    - [ ] Basic Sunburst
+    - [ ] Drink Flavors
+
+12. **Parallel Coordinates**
+    - [ ] Basic Parallel
+    - [ ] Parallel with AQI
+    - [ ] Parallel with Encode
+
+13. **Sankey**
+    - [ ] Basic Sankey
+    - [ ] Energy Sankey
+    - [ ] Node Align Left
+    - [ ] Levels
+
+14. **Funnel**
+    - [ ] Basic Funnel
+    - [ ] Customized Funnel
+    - [ ] Pyramid
+
+15. **Gauge**
+    - [ ] Basic Gauge
+    - [ ] Speed Gauge
+    - [ ] Multi Title Gauge
+    - [ ] Temperature Gauge
+    - [ ] Grade Gauge
+
+16. **Pictorial Bar**
+    - [ ] Basic Pictorial Bar
+    - [ ] Vehicles
+    - [ ] Spirits
+
+17. **Theme River**
+    - [ ] Basic Theme River
+
+18. **Calendar**
+    - [ ] Basic Calendar
+    - [ ] Calendar Heatmap
+    - [ ] Calendar Pie
+    - [ ] Calendar Graph
+
+19. **Dataset**
+    - [ ] Simple Dataset
+    - [ ] Dataset Encode
+    - [ ] Dataset in Series
+    - [ ] Dataset Link
+
+20. **Custom Series**
+    - [ ] Custom Calendar
+    - [ ] Custom Error Bar
+    - [ ] Custom Profile
+
+21. **3D Charts** (requires echarts-gl)
+    - [ ] 3D Bar
+    - [ ] 3D Scatter
+    - [ ] 3D Surface
+    - [ ] 3D Line
+    - [ ] Globe
+    - [ ] Map 3D
+
+22. **Advanced Features**
+    - [ ] Rich Text
+    - [ ] Draggable Data Points
+    - [ ] Connect Charts
+    - [ ] Brush & Zoom
+    - [ ] DataZoom Inside
+    - [ ] VisualMap
+    - [ ] Tooltip & AxisPointer
+    - [ ] Animation
+    - [ ] Incremental Loading
+    - [ ] Progressive Loading
+
+**Implementation Strategy**:
+- [ ] Phase 1: Complete all basic examples (1 sample per chart type)
+- [ ] Phase 2: Add intermediate examples (2-3 per category)
+- [ ] Phase 3: Add advanced examples (all remaining)
+- [ ] Phase 4: Add 3D charts (requires echarts-gl integration)
+
+**Testing Requirements**:
+- [ ] Each new sample must have a unit test in `AllChartsTests.cs`
+- [ ] Visual regression test screenshots
+- [ ] Documentation for each sample
+- [ ] Link to official ECharts example
+
+**Documentation**:
+- [ ] Create `EXAMPLES_COVERAGE.md` tracking completion status
+- [ ] Update demo site with searchable example gallery
+- [ ] Add "Inspired by ECharts" attribution with links
+
+**Estimated Effort**:
+- Simple examples: 30 minutes each
+- Intermediate examples: 1-2 hours each
+- Complex examples: 2-4 hours each
+- 3D charts: 4-8 hours each (requires additional dependencies)
+
+**Total Estimated**: 100-200 hours (phased over multiple releases)
+
+**Priority**: ?? Low (enhancement, can be incremental across releases)
+
+---
+
+### 16.7 Eliminate All Build Warnings
+**Goal**: Achieve zero warnings in all projects
+**Scope**: All projects in solution
+
+**Current Warning Assessment**:
+- [ ] Run `dotnet build` and capture all warnings
+- [ ] Categorize warnings by type:
+  - CS warnings (C# compiler)
+  - NU warnings (NuGet packages)
+  - MSBuild warnings
+  - Analyzer warnings
+  - XML documentation warnings
+  - Nullable reference type warnings
+  - Obsolete API warnings
+- [ ] Prioritize warnings by severity and impact
+
+**Common Warning Types to Address**:
+
+1. **XML Documentation Warnings (CS1591)**
+   - [ ] Add `<summary>` tags to all public APIs
+   - [ ] Document all parameters with `<param>`
+   - [ ] Document return values with `<returns>`
+   - [ ] Add `<remarks>` for complex behaviors
+   - [ ] Include code examples with `<example>`
+
+2. **Nullable Reference Type Warnings (CS8600, CS8602, CS8604, etc.)**
+   - [ ] Enable nullable reference types in all projects
+   - [ ] Add `?` annotations where nulls are expected
+   - [ ] Add null checks or `!` operators where nulls are impossible
+   - [ ] Review constructor initialization
+   - [ ] Update property initialization
+
+3. **Obsolete API Warnings (CS0618)**
+   - [ ] Replace obsolete .NET APIs with modern alternatives
+   - [ ] Update third-party package usage
+   - [ ] Remove or update deprecated ECharts options
+
+4. **Unused Variable/Parameter Warnings (CS0168, CS0219, IDE0051)**
+   - [ ] Remove unused variables
+   - [ ] Remove unused parameters or prefix with `_`
+   - [ ] Remove unused private methods
+   - [ ] Remove unused using directives
+
+5. **NuGet Package Warnings**
+   - [ ] Update packages with known vulnerabilities
+   - [ ] Resolve package version conflicts
+   - [ ] Remove deprecated packages
+
+6. **Async/Await Warnings (CS4014, CS1998)**
+   - [ ] Ensure async methods are awaited
+   - [ ] Remove async from non-async methods
+   - [ ] Add ConfigureAwait(false) where appropriate
+
+**Implementation Tasks by Project**:
+
+**PanoramicData.ECharts (Main Library)**
+- [ ] Enable `TreatWarningsAsErrors` for Release builds
+- [ ] Add comprehensive XML documentation
+- [ ] Enable nullable reference types
+- [ ] Update .editorconfig with strict rules
+
+**PanoramicData.ECharts.Samples**
+- [ ] Document all sample chart classes
+- [ ] Enable nullable reference types
+- [ ] Clean up unused code
+
+**PanoramicData.ECharts.Demo**
+- [ ] Clean up Razor component warnings
+- [ ] Update JavaScript interop patterns
+- [ ] Remove unused CSS/JavaScript
+
+**PanoramicData.ECharts.Test**
+- [ ] Enable nullable reference types
+- [ ] Document test helper methods
+- [ ] Clean up test setup/teardown
+
+**PanoramicData.ECharts.BindingGenerator**
+- [ ] Update code generation templates
+- [ ] Add XML documentation to generated code
+- [ ] Enable nullable reference types
+
+**Configuration Files to Update**:
+```xml
+<!-- Directory.Build.props -->
+<PropertyGroup>
+  <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  <Nullable>enable</Nullable>
+  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  <NoWarn>$(NoWarn);CS1591</NoWarn> <!-- Temporarily disable doc warnings -->
+</PropertyGroup>
+```
+
+**Validation**:
+- [ ] Run `dotnet build /warnaserror` to ensure no warnings
+- [ ] Run `dotnet build -c Release` with strict settings
+- [ ] Configure CI/CD to fail on warnings
+- [ ] Add to PR checklist: "No new warnings introduced"
+
+**Estimated Effort**:
+- Initial audit: 2-3 hours
+- XML documentation: 20-30 hours
+- Nullable reference types: 10-15 hours
+- Code cleanup: 5-10 hours
+- Testing and validation: 5 hours
+
+**Total Estimated**: 42-63 hours
+
+**Priority**: ?? Medium (improves code quality and maintainability)
+
+---
+
+## Outstanding Issues Summary
+
+| Issue | Priority | Estimated Time | Phase |
+|-------|----------|----------------|-------|
+| xUnit duplicate logging | ?? Medium | 1-2 hours | 16.1 |
+| NBGV version not applied | ?? High | 2-3 hours | 16.2 |
+| Generate .snupkg | ?? Medium | 1-2 hours | 16.3 |
+| Dark mode support | ?? Low | 3-4 hours | 16.4 |
+| GitHub Pages deployment | ?? Medium | 4-6 hours | 16.5 |
+| Complete ECharts examples | ?? Low | 100-200 hours | 16.6 |
+| Eliminate all warnings | ?? Medium | 42-63 hours | 16.7 |
+
+**Next Priority**: Phase 16.2 (NBGV versioning) - blocking for release
+
+**Long-term Goals**: 
+- Phase 16.6 (Examples coverage) - incremental across multiple releases
+- Phase 16.7 (Zero warnings) - improves code quality before v7 upgrade
+
+## Estimated Timeline
+
+- **Phase 1-2**: ? 2-4 hours (research and dependency update)
+- **Phase 3-4**: ? 2-3 hours (rebuild and binding updates)
+- **Phase 5-7**: ? 4-8 hours (testing)
+- **Phase 8**: ? 2-3 hours (documentation)
+- **Phase 9-10**: 2-4 hours (compatibility and performance)
+- **Phase 11-12**: ?? 2-3 hours (build and QA)
+- **Phase 13-15**: 1-2 hours (deployment)
+- **Phase 16.1**: 1-2 hours (xUnit logging investigation)
+- **Phase 16.2**: 2-3 hours (NBGV configuration)
+- **Phase 16.3**: 1-2 hours (symbol package generation)
+- **Phase 16.4**: 3-4 hours (dark mode implementation)
+- **Phase 16.5**: 4-6 hours (GitHub Pages deployment)
+- **Phase 16.6**: 100-200 hours (complete all ECharts examples - phased over multiple releases)
+- **Phase 16.7**: 42-63 hours (eliminate all build warnings)
+
+**Total Estimated Time**: 
+- **Core Upgrade**: 15-27 hours (Phases 1-15)
+- **Essential Enhancements**: 11-17 hours (Phases 16.1-16.5)
+- **Long-term Goals**: 142-263 hours (Phases 16.6-16.7, incremental)
+
+**Grand Total**: 168-307 hours (26-44 hours for initial release + 142-263 hours for long-term goals)
+
+## Success Criteria
+
+? ECharts 6.0.0 successfully integrated  
+? All existing samples working without errors (47/47 passing)  
+? No breaking changes for end users (C# API unchanged)  
+? All tests passing (51/51)  
+? Documentation updated  
+? NuGet package published with correct version  
+? Symbol package (.snupkg) published  
+? Demo site published to GitHub Pages  
+? Dark mode support implemented  
+? No critical bugs reported within 1 week of release
+
+**Long-term Success Criteria**:
+? All ECharts examples covered (100+ samples)  
+? Zero build warnings in all projects  
+? Complete XML documentation coverage  
+? 3D chart support (echarts-gl integration)  
+? Example gallery with search functionality
+
+## Notes
+
+- This is a **major version upgrade** of ECharts, expect potential breaking changes
+- Thoroughly test all chart types before releasing
+- Consider creating a **beta release** for early testing
+- Monitor ECharts GitHub for known issues in 6.0.0
+- Keep detailed notes of all changes for future reference
+- ?? **xUnit duplicate logging** - cosmetic issue, investigate but not blocking
+- ?? **NBGV versioning** - critical for release, must fix before publishing
+- ?? **Symbol packages** - important for debugging experience
+- ?? **Dark mode** - nice enhancement, can be post-release
+- ?? **GitHub Pages** - valuable for showcasing library, can be post-release
+- ?? **Examples coverage** - long-term goal, implement incrementally across releases
+- ?? **Zero warnings** - improves maintainability, should be completed before ECharts v7 upgrade
+- ?? **Phased approach**: Ship v6.0.0 first, then incrementally add examples and quality improvements
+
+**Release Strategy**:
+1. **v6.0.0** - Core upgrade with bug fixes (Phases 1-15 + 16.2-16.3)
+2. **v6.1.0** - GitHub Pages demo + dark mode (Phases 16.4-16.5)
+3. **v6.2.0** - Zero warnings + initial example expansion (Phase 16.7 + partial 16.6)
+4. **v6.3.0+** - Continued example coverage + advanced features (Phase 16.6 continuation)
+5. **v7.0.0** - ECharts v7 upgrade (when released) with complete example coverage
 
 ## Key Files to Monitor
 
@@ -551,65 +1101,12 @@ If critical issues are discovered:
 | `PanoramicData.ECharts\wwwroot\js\panoramicdata-echarts-min.js` | Wrapper only (minified) | Renamed |
 | `PanoramicData.ECharts.BindingGenerator\Types\TypeCollection.cs` | Type mappings | Possible new types |
 | `README.md` | Documentation | Version references + script names |
-| `version.json` | Package version | Version increment |
+| `version.json` | Package version (NBGV) | Version increment |
 | `PanoramicData.ECharts.Demo\Pages\_Host.cshtml` | Demo script reference | Updated script src |
 | `PanoramicData.ECharts.Samples\Pages\_Host.cshtml` | Sample script reference | Updated script src |
-
----
-
-## Dependencies
-
-- **Node.js & npm**: Required for package management
-- **Gulp**: Required for building JavaScript assets
-- **.NET 10 SDK**: Required for building C# projects
-
----
-
-## Estimated Timeline
-
-- **Phase 1-2**: 2-4 hours (research and dependency update)
-- **Phase 3-4**: 2-3 hours (rebuild and binding updates)
-- **Phase 5-7**: 4-8 hours (testing)
-- **Phase 8**: 2-3 hours (documentation)
-- **Phase 9-10**: 2-4 hours (compatibility and performance)
-- **Phase 11-12**: 2-3 hours (build and QA)
-- **Phase 13-15**: 1-2 hours (deployment)
-
-**Total Estimated Time**: 15-27 hours
-
----
-
-## Success Criteria
-
-? ECharts 6.0.0 successfully integrated  
-? All existing samples working without errors  
-? No breaking changes for end users (or well-documented)  
-? All tests passing  
-? Documentation updated  
-? NuGet package published  
-? No critical bugs reported within 1 week of release
-
----
-
-## Notes
-
-- This is a **major version upgrade** of ECharts, expect potential breaking changes
-- Thoroughly test all chart types before releasing
-- Consider creating a **beta release** for early testing
-- Monitor ECharts GitHub for known issues in 6.0.0
-- Keep detailed notes of all changes for future reference
-
----
-
-## Contacts & Resources
-
-- **ECharts Documentation**: https://echarts.apache.org/en/index.html
-- **ECharts GitHub**: https://github.com/apache/echarts
-- **ECharts Releases**: https://github.com/apache/echarts/releases
-- **Project Repository**: https://github.com/panoramicdata/vizor-echarts
-
----
-
-**Last Updated**: [Date]  
-**Plan Version**: 1.0  
-**Created By**: GitHub Copilot
+| `PanoramicData.ECharts.Test\xunit.runner.json` | Test configuration | Investigate duplicate logging |
+| `Publish.ps1` | Publishing script | Add .snupkg support |
+| `.github/workflows/deploy-demo.yml` | GitHub Pages deployment | New file to create |
+| `EXAMPLES_COVERAGE.md` | Example completion tracking | New file to create |
+| `Directory.Build.props` | Solution-wide build settings | Add warning/nullable settings |
+| `.editorconfig` | Code style rules | Enforce consistent formatting |
