@@ -428,7 +428,7 @@ public abstract class EChartBase : ComponentBase, IAsyncDisposable
 			return cachedJsonOpts;
 		}
 
-		var jsonOpts = new JsonSerializerOptions()
+		var jsonOpts = new JsonSerializerOptions
 		{
 			PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
 			DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,

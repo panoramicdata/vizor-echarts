@@ -163,7 +163,7 @@ internal class TypeCollection
 			("nodes", "GraphSeries") => new GenericListType(new SimpleType("GraphSeriesData")),
 			("edges", "GraphSeries") => new GenericListType(new SimpleType("GraphSeriesLinks")),
 			//Console.WriteLine($"WARNING: array type '{prop.Name}' in '{parent.Name}' will be mapped to List<object>");
-			_ => new ObjectListType()
+			_ => new ObjectListType
 			{
 				TypeWarning = $"array type '{prop.Name}' in '{parent.Name}' will be mapped to List<object>"
 			},

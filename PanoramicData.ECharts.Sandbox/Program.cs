@@ -16,7 +16,7 @@ function getData() {
 } ()
 ");
 
-	var options = new ChartOptions()
+	var options = new ChartOptions
 	{
 		Title = new()
 		{
@@ -65,7 +65,7 @@ function getData() {
 		},
 		Series =
 			[
-				new ScatterSeries()
+				new ScatterSeries
 				{
 					Name = "Punch Card",
 					SymbolSize = new JavascriptFunction("function (val) { return val[2] * 2; }"),
@@ -75,7 +75,7 @@ function getData() {
 			]
 	};
 
-	var jsonOpts = new JsonSerializerOptions()
+	var jsonOpts = new JsonSerializerOptions
 	{
 		PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
 		DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
