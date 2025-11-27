@@ -1,14 +1,13 @@
 ﻿using System.Text.Json;
-using PanoramicData.ECharts;
 
 namespace PanoramicData.ECharts.BindingGenerator.Types;
 
 internal class TypeCollection
 {
-	private readonly Dictionary<string, Dictionary<string, MappedEnumType>> enumTypesMappedByName = new();
+	private readonly Dictionary<string, Dictionary<string, MappedEnumType>> enumTypesMappedByName = [];
 
-	private readonly Dictionary<string, List<ObjectType>> allObjectTypesWithDuplicates = new();
-	private readonly Dictionary<string, ObjectType> objectTypeLookup = new();
+	private readonly Dictionary<string, List<ObjectType>> allObjectTypesWithDuplicates = [];
+	private readonly Dictionary<string, ObjectType> objectTypeLookup = [];
 
 	private readonly ObjectType chartOptions = new(null, "", "ChartOptions", "Options");
 
@@ -148,7 +147,7 @@ internal class TypeCollection
 
 	public bool TryGetObjectType(string name, out ObjectType? objectType) => objectTypeLookup.TryGetValue(name, out objectType);
 
-	public IPropertyType? MapArrayType(ObjectType parent, OptionProperty optProp, JsonProperty prop)
+	public static IPropertyType? MapArrayType(ObjectType parent, OptionProperty optProp, JsonProperty prop)
 	{
 		// did we succeed in determining the item type ?
 		if (optProp.ItemType != null)
@@ -157,22 +156,17 @@ internal class TypeCollection
 		}
 
 		// special cases: these are often aliases
-		switch (prop.Name, parent.Name)
+		return (prop.Name, parent.Name) switch
 		{
-			case ("nodes", "SankeySeries"):
-				return new GenericListType(new SimpleType("SankeySeriesData"));
-			case ("edges", "SankeySeries"):
-				return new GenericListType(new SimpleType("SankeySeriesLinks"));
-			case ("nodes", "GraphSeries"):
-				return new GenericListType(new SimpleType("GraphSeriesData"));
-			case ("edges", "GraphSeries"):
-				return new GenericListType(new SimpleType("GraphSeriesLinks"));
-		}
-
-		//Console.WriteLine($"WARNING: array type '{prop.Name}' in '{parent.Name}' will be mapped to List<object>");
-		return new ObjectListType()
-		{
-			TypeWarning = $"array type '{prop.Name}' in '{parent.Name}' will be mapped to List<object>"
+			("nodes", "SankeySeries") => new GenericListType(new SimpleType("SankeySeriesData")),
+			("edges", "SankeySeries") => new GenericListType(new SimpleType("SankeySeriesLinks")),
+			("nodes", "GraphSeries") => new GenericListType(new SimpleType("GraphSeriesData")),
+			("edges", "GraphSeries") => new GenericListType(new SimpleType("GraphSeriesLinks")),
+			//Console.WriteLine($"WARNING: array type '{prop.Name}' in '{parent.Name}' will be mapped to List<object>");
+			_ => new ObjectListType()
+			{
+				TypeWarning = $"array type '{prop.Name}' in '{parent.Name}' will be mapped to List<object>"
+			},
 		};
 	}
 
@@ -199,7 +193,7 @@ internal class TypeCollection
 	{
 		if (!allObjectTypesWithDuplicates.TryGetValue(objectType.Name, out var list))
 		{
-			list = new List<ObjectType>();
+			list = [];
 			allObjectTypesWithDuplicates.Add(objectType.Name, list);
 		}
 
@@ -229,7 +223,7 @@ internal class TypeCollection
 	{
 		if (!enumTypesMappedByName.TryGetValue(mappedType.Name, out var typeDict))
 		{
-			typeDict = new Dictionary<string, MappedEnumType>();
+			typeDict = [];
 			enumTypesMappedByName.Add(mappedType.Name, typeDict);
 		}
 

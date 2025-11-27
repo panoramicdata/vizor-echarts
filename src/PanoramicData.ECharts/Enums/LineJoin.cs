@@ -6,7 +6,7 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverter<LineJoin>))]
 public enum LineJoin
 {
-    Bevel,
-    Round,
-    Miter
+	Bevel,
+	Round,
+	Miter
 }

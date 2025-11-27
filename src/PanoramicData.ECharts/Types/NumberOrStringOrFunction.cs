@@ -36,10 +36,7 @@ public class NumberOrStringOrFunction
 	[return: NotNullIfNotNull(nameof(str))]
 	public static implicit operator NumberOrStringOrFunction?(string? str)
 	{
-		if (str == null)
-			return null;
-
-		return new NumberOrStringOrFunction(str);
+		return str == null ? null : new NumberOrStringOrFunction(str);
 	}
 
 	public static implicit operator NumberOrStringOrFunction(JavascriptFunction function)
@@ -50,10 +47,7 @@ public class NumberOrStringOrFunction
 
 public class NumberOrStringOrFunctionConverter : JsonConverter<NumberOrStringOrFunction>
 {
-	public override NumberOrStringOrFunction Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for NumberOrStringOrFunction.");
-	}
+	public override NumberOrStringOrFunction Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for NumberOrStringOrFunction.");
 
 	public override void Write(Utf8JsonWriter writer, NumberOrStringOrFunction value, JsonSerializerOptions options)
 	{

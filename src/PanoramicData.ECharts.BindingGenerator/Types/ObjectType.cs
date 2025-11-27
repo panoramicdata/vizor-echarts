@@ -14,21 +14,21 @@ internal class ObjectType : IPropertyType, IObjectType
 		DotNetType = Helper.ToClassName(name);
 	}
 
-    public ObjectType(OptionProperty? parent, string name, string dotNetType, string typeGroup)
-    {
+	public ObjectType(OptionProperty? parent, string name, string dotNetType, string typeGroup)
+	{
 		Parent = parent;
 		Name = name;
 		DotNetType = dotNetType;
 		TypeGroup = typeGroup;
 	}
 
-    public OptionProperty? Parent { get; }
+	public OptionProperty? Parent { get; }
 	public string Name { get; }
 	public string DotNetType { get; }
 
 	public string TypeGroup { get; set; }
 
-	public List<OptionProperty> Properties { get; } = new List<OptionProperty>();
+	public List<OptionProperty> Properties { get; } = [];
 
 	public string Path => Parent == null ? string.Empty : Parent.Path + "." + Name;
 

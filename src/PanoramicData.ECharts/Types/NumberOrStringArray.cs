@@ -46,10 +46,7 @@ public class NumberOrStringArray
 
 public class NumberOrStringArrayConverter : JsonConverter<NumberOrStringArray>
 {
-	public override NumberOrStringArray Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for NumberOrStringArray.");
-	}
+	public override NumberOrStringArray Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for NumberOrStringArray.");
 
 	public override void Write(Utf8JsonWriter writer, NumberOrStringArray value, JsonSerializerOptions options)
 	{

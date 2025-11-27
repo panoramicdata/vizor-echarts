@@ -55,44 +55,41 @@
 			}
 		};
 
-	private async Task LoadChartData()
-	{
-		options.Series = new()
-		{
-			new LineSeries()
-			{
-				Name = "Email",
-				Data = GenerateRandomSeries(75, 250),
-				Stack = "Total"
-			},
-			new LineSeries()
-			{
-				Name = "Union Ads",
-				Data = GenerateRandomSeries(150, 350),
-				Stack = "Total"
-			},
-			new LineSeries()
-			{
-				Name = "Video Ads",
-				Data = GenerateRandomSeries(100, 450),
-				Stack = "Total"
-			},
-			new LineSeries()
-			{
-				Name = "Direct",
-				Data = GenerateRandomSeries(300, 400),
-				Stack = "Total"
-			},
-			new LineSeries()
-			{
-				Name = "Search Engine",
-				Data = GenerateRandomSeries(800, 1400),
-				Stack = "Total"
-			}
-		};
-	}
+        private async Task LoadChartData() => options.Series = new()
+        {
+            new LineSeries()
+            {
+                Name = "Email",
+                Data = GenerateRandomSeries(75, 250),
+                Stack = "Total"
+            },
+            new LineSeries()
+            {
+                Name = "Union Ads",
+                Data = GenerateRandomSeries(150, 350),
+                Stack = "Total"
+            },
+            new LineSeries()
+            {
+                Name = "Video Ads",
+                Data = GenerateRandomSeries(100, 450),
+                Stack = "Total"
+            },
+            new LineSeries()
+            {
+                Name = "Direct",
+                Data = GenerateRandomSeries(300, 400),
+                Stack = "Total"
+            },
+            new LineSeries()
+            {
+                Name = "Search Engine",
+                Data = GenerateRandomSeries(800, 1400),
+                Stack = "Total"
+            }
+        };
 
-	private int[] GenerateRandomSeries(int min, int max)
+        private int[] GenerateRandomSeries(int min, int max)
 	{
 		var arr = new int[7];
 		for (int i = 0; i < arr.Length; ++i)

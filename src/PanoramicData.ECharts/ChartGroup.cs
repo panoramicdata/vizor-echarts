@@ -5,19 +5,13 @@
 /// </summary>
 public class ChartGroup
 {
-	private readonly List<EChartBase> charts = new();
+	private readonly List<EChartBase> charts = [];
 
-	internal void Add(EChartBase chart)
-	{
-		charts.Add(chart);
-	}
+	internal void Add(EChartBase chart) => charts.Add(chart);
 
-	internal void Remove(EChartBase chart)
-	{
-		charts.Remove(chart);
-	}
+	internal void Remove(EChartBase chart) => charts.Remove(chart);
 
-    public async Task UpdateAsync(bool executeDataLoader = true)
+	public async Task UpdateAsync(bool executeDataLoader = true)
 	{
 		foreach (var chart in charts)
 		{

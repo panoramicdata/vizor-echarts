@@ -5,8 +5,8 @@ namespace PanoramicData.ECharts;
 
 public class CustomTransform : IDatasetTransform
 {
-    public CustomTransform(string type)
-    {
+	public CustomTransform(string type)
+	{
 		Type = type;
 	}
 

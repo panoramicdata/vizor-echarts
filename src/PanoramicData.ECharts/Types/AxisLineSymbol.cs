@@ -32,10 +32,7 @@ public class AxisLineSymbol
 
 public class AxisLineSymbolConverter : JsonConverter<AxisLineSymbol>
 {
-	public override AxisLineSymbol Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for AxisLineSymbol.");
-	}
+	public override AxisLineSymbol Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for AxisLineSymbol.");
 
 	public override void Write(Utf8JsonWriter writer, AxisLineSymbol value, JsonSerializerOptions options)
 	{

@@ -8,7 +8,7 @@ public class StringArray
 {
 	public StringArray(string value)
 	{
-		Values = new string[] { value };
+		Values = [value];
 	}
 
 	public StringArray(string[] values)
@@ -31,10 +31,7 @@ public class StringArray
 
 public class StringArrayConverter : JsonConverter<StringArray>
 {
-	public override StringArray Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for StringArray.");
-	}
+	public override StringArray Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for StringArray.");
 
 	public override void Write(Utf8JsonWriter writer, StringArray value, JsonSerializerOptions options)
 	{
@@ -51,6 +48,7 @@ public class StringArrayConverter : JsonConverter<StringArray>
 				{
 					writer.WriteStringValue(val);
 				}
+
 				writer.WriteEndArray();
 			}
 		}

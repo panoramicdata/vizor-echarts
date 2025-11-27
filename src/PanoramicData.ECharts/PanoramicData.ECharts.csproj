@@ -27,10 +27,14 @@
 		<Description>Blazor wrapper for Apache ECharts.</Description>
 
 		<!-- no warnings for missing XML docs -->
-		<NoWarn>$(NoWarn);1591</NoWarn>
+		<WarningsAsErrors>true</WarningsAsErrors>
+		<Title>PanoramicData.ECharts</Title>
+		<PackageId>$(AssemblyName)</PackageId>
+	</PropertyGroup>
+
+	<!-- Only generate package on build in Release mode -->
+	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Title>PanoramicData.ECharts.Net90</Title>
-		<PackageId>$(AssemblyName).Net90</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -58,9 +62,5 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
-
-	<Target Name="PublishAfterPackAutoFail" AfterTargets="Pack" Condition="'$(Configuration)' != 'Release' ">
-		<Error Text="You must pack in Release mode" />
-	</Target>
 
 </Project>

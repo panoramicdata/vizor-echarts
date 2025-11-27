@@ -30,10 +30,7 @@ public class NumberOrString
 	[return: NotNullIfNotNull(nameof(str))]
 	public static implicit operator NumberOrString?(string? str)
 	{
-		if (str == null)
-			return null;
-
-		return new NumberOrString(str);
+		return str == null ? null : new NumberOrString(str);
 	}
 }
 
@@ -41,10 +38,7 @@ public class NumberOrStringConverter : JsonConverter<NumberOrString>
 {
 	private static readonly NumberOrStringConverter instance = new();
 
-	public override NumberOrString Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for NumberOrString.");
-	}
+	public override NumberOrString Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for NumberOrString.");
 
 	public override void Write(Utf8JsonWriter writer, NumberOrString value, JsonSerializerOptions options)
 	{

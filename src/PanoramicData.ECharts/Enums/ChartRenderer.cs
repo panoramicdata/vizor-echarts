@@ -11,13 +11,10 @@ public enum ChartRenderer
 
 public static class ChartRendererExtensions
 {
-	public static string ToJsParam(this ChartRenderer renderer)
+	public static string ToJsParam(this ChartRenderer renderer) => renderer switch
 	{
-		return renderer switch
-		{
-			ChartRenderer.Svg => "svg",
-			ChartRenderer.Canvas => "canvas",
-			_ => throw new ArgumentException($"Renderer '{renderer}' not supported")
-		};
-	}
+		ChartRenderer.Svg => "svg",
+		ChartRenderer.Canvas => "canvas",
+		_ => throw new ArgumentException($"Renderer '{renderer}' not supported")
+	};
 }

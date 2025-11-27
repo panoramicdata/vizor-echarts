@@ -6,6 +6,6 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverter<AnimationType>))]
 public enum AnimationType
 {
-    Expansion,
-    Scale
+	Expansion,
+	Scale
 }

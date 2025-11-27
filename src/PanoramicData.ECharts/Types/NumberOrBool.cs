@@ -32,10 +32,7 @@ public class NumberOrBool
 
 public class NumberOrBoolConverter : JsonConverter<NumberOrBool>
 {
-	public override NumberOrBool Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for NumberOrBool.");
-	}
+	public override NumberOrBool Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for NumberOrBool.");
 
 	public override void Write(Utf8JsonWriter writer, NumberOrBool value, JsonSerializerOptions options)
 	{

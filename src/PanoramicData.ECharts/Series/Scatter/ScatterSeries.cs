@@ -14,13 +14,13 @@ public partial class ScatterSeries : ISeries
 	/// If specified, it can be used to refer the component in option or API.
 	/// </summary>
 	[JsonPropertyName("id")]
-	public string? Id { get; set; } 
+	public string? Id { get; set; }
 
 	/// <summary>
 	/// Series name used for displaying in tooltip and filtering with legend , or updating data and configuration with setOption .
 	/// </summary>
 	[JsonPropertyName("name")]
-	public string? Name { get; set; } 
+	public string? Name { get; set; }
 
 	/// <summary>
 	/// Since v5.2.0   
@@ -29,7 +29,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("colorBy")]
 	[DefaultValue("series")]
-	public ColorBy? ColorBy { get; set; } 
+	public ColorBy? ColorBy { get; set; }
 
 	/// <summary>
 	/// The coordinate used in the series, whose options are:   
@@ -47,49 +47,49 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("coordinateSystem")]
 	[DefaultValue("cartesian2d")]
-	public string? CoordinateSystem { get; set; } 
+	public string? CoordinateSystem { get; set; }
 
 	/// <summary>
 	/// Index of x axis to combine with, which is  useful for multiple x axes in one chart.
 	/// </summary>
 	[JsonPropertyName("xAxisIndex")]
 	[DefaultValue(0)]
-	public int? XAxisIndex { get; set; } 
+	public int? XAxisIndex { get; set; }
 
 	/// <summary>
 	/// Index of y axis to combine with, which is  useful for multiple y axes in one chart.
 	/// </summary>
 	[JsonPropertyName("yAxisIndex")]
 	[DefaultValue(0)]
-	public int? YAxisIndex { get; set; } 
+	public int? YAxisIndex { get; set; }
 
 	/// <summary>
 	/// Index of polar coordinate to combine with, which is useful for multiple polar axes in one chart.
 	/// </summary>
 	[JsonPropertyName("polarIndex")]
 	[DefaultValue(0)]
-	public int? PolarIndex { get; set; } 
+	public int? PolarIndex { get; set; }
 
 	/// <summary>
 	/// Index of geographic coordinate to combine with, which is useful for multiple geographic axes in one chart.
 	/// </summary>
 	[JsonPropertyName("geoIndex")]
 	[DefaultValue(0)]
-	public int? GeoIndex { get; set; } 
+	public int? GeoIndex { get; set; }
 
 	/// <summary>
 	/// Index of calendar coordinates to combine with, which is useful for multiple calendar coordinates in one chart.
 	/// </summary>
 	[JsonPropertyName("calendarIndex")]
 	[DefaultValue(0)]
-	public int? CalendarIndex { get; set; } 
+	public int? CalendarIndex { get; set; }
 
 	/// <summary>
 	/// Whether to enable highlighting chart when legend is being hovered.
 	/// </summary>
 	[JsonPropertyName("legendHoverLink")]
 	[DefaultValue("true")]
-	public bool? LegendHoverLink { get; set; } 
+	public bool? LegendHoverLink { get; set; }
 
 	/// <summary>
 	/// Symbol of .
@@ -111,7 +111,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("symbol")]
 	[DefaultValue("circle")]
-	public StringOrFunction? Symbol { get; set; } 
+	public StringOrFunction? Symbol { get; set; }
 
 	/// <summary>
 	/// symbol size.
@@ -123,7 +123,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("symbolSize")]
 	[DefaultValue(10)]
-	public NumberArrayOrFunction? SymbolSize { get; set; } 
+	public NumberArrayOrFunction? SymbolSize { get; set; }
 
 	/// <summary>
 	/// Rotate degree of  symbol.
@@ -136,14 +136,14 @@ public partial class ScatterSeries : ISeries
 	/// Callback is supported since 4.8.0 .
 	/// </summary>
 	[JsonPropertyName("symbolRotate")]
-	public NumberOrFunction? SymbolRotate { get; set; } 
+	public NumberOrFunction? SymbolRotate { get; set; }
 
 	/// <summary>
 	/// Whether to keep aspect for symbols in the form of path:// .
 	/// </summary>
 	[JsonPropertyName("symbolKeepAspect")]
 	[DefaultValue(false)]
-	public bool? SymbolKeepAspect { get; set; } 
+	public bool? SymbolKeepAspect { get; set; }
 
 	/// <summary>
 	/// Offset of  symbol relative to original position.
@@ -157,7 +157,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("symbolOffset")]
 	[DefaultValue("[0, 0]")]
-	public double[]? SymbolOffset { get; set; } 
+	public double[]? SymbolOffset { get; set; }
 
 	/// <summary>
 	/// Whether to enable the optimization of large-scale data.
@@ -169,21 +169,21 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("large")]
 	[DefaultValue(false)]
-	public bool? Large { get; set; } 
+	public bool? Large { get; set; }
 
 	/// <summary>
 	/// The threshold enabling the drawing optimization.
 	/// </summary>
 	[JsonPropertyName("largeThreshold")]
 	[DefaultValue("2000")]
-	public double? LargeThreshold { get; set; } 
+	public double? LargeThreshold { get; set; }
 
 	/// <summary>
 	/// The mouse style when mouse hovers on an element, the same as cursor property in CSS .
 	/// </summary>
 	[JsonPropertyName("cursor")]
 	[DefaultValue("pointer")]
-	public string? Cursor { get; set; } 
+	public string? Cursor { get; set; }
 
 	/// <summary>
 	/// Text label of , to explain some data information about graphic item like value, name and so on.
@@ -191,14 +191,14 @@ public partial class ScatterSeries : ISeries
 	/// In ECharts 3, to make the configuration structure flatter, label is taken to be at the same level with itemStyle , and has emphasis as itemStyle does.
 	/// </summary>
 	[JsonPropertyName("label")]
-	public Label? Label { get; set; } 
+	public Label? Label { get; set; }
 
 	/// <summary>
 	/// Since v5.0.0   
 	/// Configuration of label guide line.
 	/// </summary>
 	[JsonPropertyName("labelLine")]
-	public LabelLine? LabelLine { get; set; } 
+	public LabelLine? LabelLine { get; set; }
 
 	/// <summary>
 	/// Since v5.0.0   
@@ -247,19 +247,19 @@ public partial class ScatterSeries : ISeries
 	/// }
 	/// </summary>
 	[JsonPropertyName("labelLayout")]
-	public ObjectOrFunction? LabelLayout { get; set; } 
+	public ObjectOrFunction? LabelLayout { get; set; }
 
 	/// <summary>
 	/// Graphic style of , emphasis is the style when it is highlighted, like being hovered by mouse, or highlighted via legend connect.
 	/// </summary>
 	[JsonPropertyName("itemStyle")]
-	public ItemStyle? ItemStyle { get; set; } 
+	public ItemStyle? ItemStyle { get; set; }
 
 	/// <summary>
 	/// Configurations of emphasis state.
 	/// </summary>
 	[JsonPropertyName("emphasis")]
-	public Emphasis? Emphasis { get; set; } 
+	public Emphasis? Emphasis { get; set; }
 
 	/// <summary>
 	/// Since v5.0.0   
@@ -267,7 +267,7 @@ public partial class ScatterSeries : ISeries
 	/// Available when emphasis.focus is set.
 	/// </summary>
 	[JsonPropertyName("blur")]
-	public Blur? Blur { get; set; } 
+	public Blur? Blur { get; set; }
 
 	/// <summary>
 	/// Since v5.0.0   
@@ -275,7 +275,7 @@ public partial class ScatterSeries : ISeries
 	/// Available when selectedMode is set.
 	/// </summary>
 	[JsonPropertyName("select")]
-	public Select? Select { get; set; } 
+	public Select? Select { get; set; }
 
 	/// <summary>
 	/// Since v5.0.0   
@@ -288,7 +288,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("selectedMode")]
 	[DefaultValue(false)]
-	public SelectionMode? SelectedMode { get; set; } 
+	public SelectionMode? SelectedMode { get; set; }
 
 	/// <summary>
 	/// progressive specifies the amount of graphic elements that can be rendered within a frame (about 16ms) if "progressive rendering" enabled.
@@ -301,14 +301,14 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("progressive")]
 	[DefaultValue(400)]
-	public double? Progressive { get; set; } 
+	public double? Progressive { get; set; }
 
 	/// <summary>
 	/// If current data amount is over the threshold, "progressive rendering" is enabled.
 	/// </summary>
 	[JsonPropertyName("progressiveThreshold")]
 	[DefaultValue(3000)]
-	public double? ProgressiveThreshold { get; set; } 
+	public double? ProgressiveThreshold { get; set; }
 
 	/// <summary>
 	/// dimensions can be used to define dimension info for series.data or dataset.source .
@@ -477,7 +477,7 @@ public partial class ScatterSeries : ISeries
 	/// };
 	/// </summary>
 	[JsonPropertyName("encode")]
-	public Encode? Encode { get; set; } 
+	public Encode? Encode { get; set; }
 
 	/// <summary>
 	/// When dataset is used, seriesLayoutBy specifies whether the column or the row of dataset is mapped to the series, namely, the series is "layout" on columns or rows.
@@ -490,7 +490,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("seriesLayoutBy")]
 	[DefaultValue("column")]
-	public SeriesLayoutBy? SeriesLayoutBy { get; set; } 
+	public SeriesLayoutBy? SeriesLayoutBy { get; set; }
 
 	/// <summary>
 	/// If series.data is not specified, and dataset exists, the series will use dataset .
@@ -498,7 +498,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("datasetIndex")]
 	[DefaultValue(0)]
-	public int? DatasetIndex { get; set; } 
+	public int? DatasetIndex { get; set; }
 
 	/// <summary>
 	/// A groupID common to all data in the series.
@@ -509,131 +509,131 @@ public partial class ScatterSeries : ISeries
 	[JsonPropertyName("dataGroupId")]
 	public string? DataGroupId { get; set; }
 
-    /// <summary>
-    /// Data array of series, which can be in the following forms:  
-    /// Notice, if no data specified in series, and there is dataset in option, series will use the first dataset as its datasource.
-    /// If data has been specified, dataset will not used.
-    /// 
-    /// List of ScatterSeriesData, int[][], double[][], ...
-    ///  
-    /// series.datasetIndex can be used to specify other dataset .
-    ///  
-    /// Basically, data is represented by a two-dimension array, like the example below, where each column is named as a "dimension".
-    ///  series: [{
-    ///     data: [
-    ///         // dimX   dimY   other dimensions ...
-    ///         [  3.4,    4.5,   15,   43],
-    ///         [  4.2,    2.3,   20,   91],
-    ///         [  10.8,   9.5,   30,   18],
-    ///         [  7.2,    8.8,   18,   57]
-    ///     ]
-    /// }]   In cartesian (grid) , "dimX" and "dimY" correspond to xAxis and yAxis respectively.
-    ///  In polar "dimX" and "dimY" correspond to radiusAxis and angleAxis respectively.
-    ///  Other dimensions are optional, which can be used in other places.
-    /// For example:  visualMap can map one or more dimensions to visual (color, symbol size ...).
-    ///  series.symbolSize can be set as a callback function, where symbol size can be calculated by values of a certain dimension.
-    ///  Values in other dimensions can be shown by tooltip.formatter or series.label.formatter .
-    ///     
-    /// Especially, when there is one and only one category axis (axis.type is 'category' ), data can be simply be represented by a one-dimension array, like:  xAxis: {
-    ///     data: ['a', 'b', 'm', 'n']
-    /// },
-    /// series: [{
-    ///     // Each item corresponds to each item in xAxis.data.
-    ///     data: [23,  44,  55,  19]
-    ///     // In fact, it is the simplification of the format below:
-    ///     // data: [[0, 23], [1, 44], [2, 55], [3, 19]]
-    /// }]  
-    /// 
-    ///  Relationship between "value" and axis.type   
-    /// When a dimension corresponds to a value axis (axis.type is 'value' or 'log' ):  
-    /// The value can be a number (like 12 ) (can also be a number in a string format, like '12' ).
-    ///   
-    /// When a dimension corresponds to a category axis (axis.type is 'category' ):  
-    /// The value should be the ordinal of the axis.data (based on 0 ), the string value of the axis.data.
-    /// For example:  xAxis: {
-    ///       type: 'category',
-    ///       data: ['Monday', 'Tuesday', 'Wednesday', 'Thursday']
-    ///   },
-    ///   yAxis: {
-    ///       type: 'category',
-    ///       data: ['a', 'b', 'm', 'n', 'p', 'q']
-    ///   },
-    ///   series: [{
-    ///       data: [
-    ///           // xAxis      yAxis
-    ///           [  0,           0,    2  ], // This point is located at xAxis: 'Monday', yAxis: 'a'.
-    ///           [  'Thursday',  2,    1  ], // This point is located at xAxis: 'Thursday', yAxis: 'm'.
-    ///           [  2,          'p',   2  ], // This point is located at xAxis: 'Wednesday', yAxis: 'p'.
-    ///           [  3,           3,    5  ]
-    ///       ]
-    ///   }]  
-    /// There is an example of double category axes: Github Punchcard .
-    ///   
-    /// When a dimension corresponds to a time axis (type is 'time' ), the value can be:   a timestamp, like 1484141700832 , which represents a UTC time.
-    ///  a date string, in one of the formats below:  a subset of ISO 8601 , only including (all of these are treated as local time unless timezone is specified, which is consistent with moment ):  only part of year/month/date/time are specified: '2012-03' , '2012-03-01' , '2012-03-01 05' , '2012-03-01 05:06' .
-    ///  separated by "T" or a space: '2012-03-01T12:22:33.123' , '2012-03-01 12:22:33.123' .
-    ///  timezone specified: '2012-03-01T12:22:33Z' , '2012-03-01T12:22:33+8000' , '2012-03-01T12:22:33-05:00' .
-    ///    other date string format (all of these are treated as local time): '2012' , '2012-3-1' , '2012/3/1' , '2012/03/01' , '2009/6/12 2:00' , '2009/6/12 2:05:08' , '2009/6/12 2:05:08.123' .
-    ///    a JavaScript Date instance created by user:  Caution, when using a data string to create a Date instance, browser differences and inconsistencies should be considered.
-    ///  For example: In chrome, new Date('2012-01-01') is treated as a Jan 1st 2012 in UTC, while new Date('2012-1-1') and new Date('2012/01/01') are treated as Jan 1st 2012 in local timezone.
-    /// In safari new Date('2012-1-1') is not supported.
-    ///  So if you intent to perform new Date(dateString) , it is strongly recommended to use a time parse library (e.g., moment ), or use echarts.time.parse , or check this .
-    ///       
-    /// 
-    ///  Customize a data item:  
-    /// When needing to customize a data item, it can be set as an object, where property value reprensent real value.
-    /// For example:  [
-    ///     12,
-    ///     24,
-    ///     {
-    ///         value: [24, 32],
-    ///         // label style, only works in this data item.
-    ///         label: {},
-    ///         // item style, only works in this data item.
-    ///         itemStyle:{}
-    ///     },
-    ///     33
-    /// ]
-    /// // Or
-    /// [
-    ///     [12, 332],
-    ///     [24, 32],
-    ///     {
-    ///         value: [24, 32],
-    ///         // label style, only works in this data item.
-    ///         label: {},
-    ///         // item style, only works in this data item.
-    ///         itemStyle:{}
-    ///     },
-    ///     [33, 31]
-    /// ]  
-    /// 
-    ///  Empty value:  
-    /// '-' or null or undefined or NaN can be used to describe that a data item does not exist (ps： not exist does not means its value is 0 ).
-    ///  
-    /// For example, line chart can break when encounter an empty value, and scatter chart do not display graphic elements for empty values.
-    /// </summary>
-    [JsonPropertyName("data")]
-	public object? Data { get; set; } 
+	/// <summary>
+	/// Data array of series, which can be in the following forms:  
+	/// Notice, if no data specified in series, and there is dataset in option, series will use the first dataset as its datasource.
+	/// If data has been specified, dataset will not used.
+	/// 
+	/// List of ScatterSeriesData, int[][], double[][], ...
+	///  
+	/// series.datasetIndex can be used to specify other dataset .
+	///  
+	/// Basically, data is represented by a two-dimension array, like the example below, where each column is named as a "dimension".
+	///  series: [{
+	///     data: [
+	///         // dimX   dimY   other dimensions ...
+	///         [  3.4,    4.5,   15,   43],
+	///         [  4.2,    2.3,   20,   91],
+	///         [  10.8,   9.5,   30,   18],
+	///         [  7.2,    8.8,   18,   57]
+	///     ]
+	/// }]   In cartesian (grid) , "dimX" and "dimY" correspond to xAxis and yAxis respectively.
+	///  In polar "dimX" and "dimY" correspond to radiusAxis and angleAxis respectively.
+	///  Other dimensions are optional, which can be used in other places.
+	/// For example:  visualMap can map one or more dimensions to visual (color, symbol size ...).
+	///  series.symbolSize can be set as a callback function, where symbol size can be calculated by values of a certain dimension.
+	///  Values in other dimensions can be shown by tooltip.formatter or series.label.formatter .
+	///     
+	/// Especially, when there is one and only one category axis (axis.type is 'category' ), data can be simply be represented by a one-dimension array, like:  xAxis: {
+	///     data: ['a', 'b', 'm', 'n']
+	/// },
+	/// series: [{
+	///     // Each item corresponds to each item in xAxis.data.
+	///     data: [23,  44,  55,  19]
+	///     // In fact, it is the simplification of the format below:
+	///     // data: [[0, 23], [1, 44], [2, 55], [3, 19]]
+	/// }]  
+	/// 
+	///  Relationship between "value" and axis.type   
+	/// When a dimension corresponds to a value axis (axis.type is 'value' or 'log' ):  
+	/// The value can be a number (like 12 ) (can also be a number in a string format, like '12' ).
+	///   
+	/// When a dimension corresponds to a category axis (axis.type is 'category' ):  
+	/// The value should be the ordinal of the axis.data (based on 0 ), the string value of the axis.data.
+	/// For example:  xAxis: {
+	///       type: 'category',
+	///       data: ['Monday', 'Tuesday', 'Wednesday', 'Thursday']
+	///   },
+	///   yAxis: {
+	///       type: 'category',
+	///       data: ['a', 'b', 'm', 'n', 'p', 'q']
+	///   },
+	///   series: [{
+	///       data: [
+	///           // xAxis      yAxis
+	///           [  0,           0,    2  ], // This point is located at xAxis: 'Monday', yAxis: 'a'.
+	///           [  'Thursday',  2,    1  ], // This point is located at xAxis: 'Thursday', yAxis: 'm'.
+	///           [  2,          'p',   2  ], // This point is located at xAxis: 'Wednesday', yAxis: 'p'.
+	///           [  3,           3,    5  ]
+	///       ]
+	///   }]  
+	/// There is an example of double category axes: Github Punchcard .
+	///   
+	/// When a dimension corresponds to a time axis (type is 'time' ), the value can be:   a timestamp, like 1484141700832 , which represents a UTC time.
+	///  a date string, in one of the formats below:  a subset of ISO 8601 , only including (all of these are treated as local time unless timezone is specified, which is consistent with moment ):  only part of year/month/date/time are specified: '2012-03' , '2012-03-01' , '2012-03-01 05' , '2012-03-01 05:06' .
+	///  separated by "T" or a space: '2012-03-01T12:22:33.123' , '2012-03-01 12:22:33.123' .
+	///  timezone specified: '2012-03-01T12:22:33Z' , '2012-03-01T12:22:33+8000' , '2012-03-01T12:22:33-05:00' .
+	///    other date string format (all of these are treated as local time): '2012' , '2012-3-1' , '2012/3/1' , '2012/03/01' , '2009/6/12 2:00' , '2009/6/12 2:05:08' , '2009/6/12 2:05:08.123' .
+	///    a JavaScript Date instance created by user:  Caution, when using a data string to create a Date instance, browser differences and inconsistencies should be considered.
+	///  For example: In chrome, new Date('2012-01-01') is treated as a Jan 1st 2012 in UTC, while new Date('2012-1-1') and new Date('2012/01/01') are treated as Jan 1st 2012 in local timezone.
+	/// In safari new Date('2012-1-1') is not supported.
+	///  So if you intent to perform new Date(dateString) , it is strongly recommended to use a time parse library (e.g., moment ), or use echarts.time.parse , or check this .
+	///       
+	/// 
+	///  Customize a data item:  
+	/// When needing to customize a data item, it can be set as an object, where property value reprensent real value.
+	/// For example:  [
+	///     12,
+	///     24,
+	///     {
+	///         value: [24, 32],
+	///         // label style, only works in this data item.
+	///         label: {},
+	///         // item style, only works in this data item.
+	///         itemStyle:{}
+	///     },
+	///     33
+	/// ]
+	/// // Or
+	/// [
+	///     [12, 332],
+	///     [24, 32],
+	///     {
+	///         value: [24, 32],
+	///         // label style, only works in this data item.
+	///         label: {},
+	///         // item style, only works in this data item.
+	///         itemStyle:{}
+	///     },
+	///     [33, 31]
+	/// ]  
+	/// 
+	///  Empty value:  
+	/// '-' or null or undefined or NaN can be used to describe that a data item does not exist (ps： not exist does not means its value is 0 ).
+	///  
+	/// For example, line chart can break when encounter an empty value, and scatter chart do not display graphic elements for empty values.
+	/// </summary>
+	[JsonPropertyName("data")]
+	public object? Data { get; set; }
 
 	/// <summary>
 	/// Mark point in a chart.
 	/// </summary>
 	[JsonPropertyName("markPoint")]
-	public MarkPoint? MarkPoint { get; set; } 
+	public MarkPoint? MarkPoint { get; set; }
 
 	/// <summary>
 	/// Use a line in the chart to illustrate.
 	/// </summary>
 	[JsonPropertyName("markLine")]
-	public MarkLine? MarkLine { get; set; } 
+	public MarkLine? MarkLine { get; set; }
 
 	/// <summary>
 	/// Used to mark an area in chart.
 	/// For example, mark a time interval.
 	/// </summary>
 	[JsonPropertyName("markArea")]
-	public MarkArea? MarkArea { get; set; } 
+	public MarkArea? MarkArea { get; set; }
 
 	/// <summary>
 	/// Since v4.4.0   
@@ -652,7 +652,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("clip")]
 	[DefaultValue("true")]
-	public bool? Clip { get; set; } 
+	public bool? Clip { get; set; }
 
 	/// <summary>
 	/// zlevel value of all graphical elements in Scatter.
@@ -666,7 +666,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("zlevel")]
 	[DefaultValue(0)]
-	public double? Zlevel { get; set; } 
+	public double? Zlevel { get; set; }
 
 	/// <summary>
 	/// z value of all graphical elements in Scatter, which controls order of drawing graphical components.
@@ -676,7 +676,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("z")]
 	[DefaultValue(2)]
-	public double? Z { get; set; } 
+	public double? Z { get; set; }
 
 	/// <summary>
 	/// Whether to ignore mouse events.
@@ -684,14 +684,14 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("silent")]
 	[DefaultValue(false)]
-	public bool? Silent { get; set; } 
+	public bool? Silent { get; set; }
 
 	/// <summary>
 	/// Whether to enable animation.
 	/// </summary>
 	[JsonPropertyName("animation")]
 	[DefaultValue("true")]
-	public bool? Animation { get; set; } 
+	public bool? Animation { get; set; }
 
 	/// <summary>
 	/// Whether to set graphic number threshold to animation.
@@ -699,7 +699,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("animationThreshold")]
 	[DefaultValue(2000)]
-	public double? AnimationThreshold { get; set; } 
+	public double? AnimationThreshold { get; set; }
 
 	/// <summary>
 	/// Duration of the first animation, which supports callback function for different data to have different animation effect:  animationDuration: function (idx) {
@@ -709,7 +709,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("animationDuration")]
 	[DefaultValue("1000")]
-	public NumberOrFunction? AnimationDuration { get; set; } 
+	public NumberOrFunction? AnimationDuration { get; set; }
 
 	/// <summary>
 	/// Easing method used for the first animation.
@@ -717,7 +717,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("animationEasing")]
 	[DefaultValue("cubicOut")]
-	public AnimationEasing? AnimationEasing { get; set; } 
+	public AnimationEasing? AnimationEasing { get; set; }
 
 	/// <summary>
 	/// Delay before updating the first animation, which supports callback function for different data to have different animation effect.
@@ -730,7 +730,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("animationDelay")]
 	[DefaultValue(0)]
-	public NumberOrFunction? AnimationDelay { get; set; } 
+	public NumberOrFunction? AnimationDelay { get; set; }
 
 	/// <summary>
 	/// Time for animation to complete, which supports callback function for different data to have different animation effect:  animationDurationUpdate: function (idx) {
@@ -740,14 +740,14 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("animationDurationUpdate")]
 	[DefaultValue("1000")]
-	public NumberOrFunction? AnimationDurationUpdate { get; set; } 
+	public NumberOrFunction? AnimationDurationUpdate { get; set; }
 
 	/// <summary>
 	/// Easing method used for animation.
 	/// </summary>
 	[JsonPropertyName("animationEasingUpdate")]
 	[DefaultValue("cubicOut")]
-	public AnimationEasing? AnimationEasingUpdate { get; set; } 
+	public AnimationEasing? AnimationEasingUpdate { get; set; }
 
 	/// <summary>
 	/// Delay before updating animation, which supports callback function for different data to have different animation effects.
@@ -760,7 +760,7 @@ public partial class ScatterSeries : ISeries
 	/// </summary>
 	[JsonPropertyName("animationDelayUpdate")]
 	[DefaultValue(0)]
-	public NumberOrFunction? AnimationDelayUpdate { get; set; } 
+	public NumberOrFunction? AnimationDelayUpdate { get; set; }
 
 	/// <summary>
 	/// Since v5.2.0   
@@ -776,12 +776,12 @@ public partial class ScatterSeries : ISeries
 	/// It is also possible to provide an object for more detailed configuration.
 	/// </summary>
 	[JsonPropertyName("universalTransition")]
-	public UniversalTransition? UniversalTransition { get; set; } 
+	public UniversalTransition? UniversalTransition { get; set; }
 
 	/// <summary>
 	/// tooltip settings in this series.
 	/// </summary>
 	[JsonPropertyName("tooltip")]
-	public Tooltip? Tooltip { get; set; } 
+	public Tooltip? Tooltip { get; set; }
 
 }

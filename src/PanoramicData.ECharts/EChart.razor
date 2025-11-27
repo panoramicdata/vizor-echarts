@@ -13,12 +13,12 @@
 
 @code {
 
+	private bool _chartInitialized = false;
 
 	protected override async Task OnAfterRenderAsync(bool firstRender)
 	{
-		// echarts.init the very first time the component is rendered
-
-		if (!firstRender)
+		// Skip if chart is already initialized
+		if (_chartInitialized)
 			return;
 
 		if (Options == null)
@@ -38,35 +38,48 @@
 			height = Height
 		});
 
+		try
+		{
 #if DEBUG
-	// enable console.log in debug mode
-	await JSRuntime.InvokeVoidAsync("panoramicDataECharts.changeLogging", true);
+			// enable console.log in debug mode
+			await JSRuntime.InvokeVoidAsync("panoramicDataECharts.changeLogging", true);
 #endif
 
-		if (DataLoader.HasDelegate)
-		{
-			// init the chart without any data
-			await JSRuntime.InvokeVoidAsync("panoramicDataECharts.initChart", Id, Theme, initOptions, null /*chartOpts*/, null /*mapOpts*/, null /*fetchOptions*/);
-
-			// retrieve the data
 			if (DataLoader.HasDelegate)
 			{
-				await DataLoader.InvokeAsync();
+				// init the chart without any data
+				await JSRuntime.InvokeVoidAsync("panoramicDataECharts.initChart", Id, Theme, initOptions, null /*chartOpts*/, null /*mapOpts*/, null /*fetchOptions*/);
+
+				// retrieve the data
+				if (DataLoader.HasDelegate)
+				{
+					await DataLoader.InvokeAsync();
+				}
+
+				// serialize all required data
+				(var chartOpts, var mapOpts, var fetchOpts) = Serialize(serializeMapOpts: true);
+
+				// update the chart
+				await JSRuntime.InvokeVoidAsync("panoramicDataECharts.updateChart", Id, chartOpts, mapOpts, fetchOpts);
+			}
+			else
+			{
+				// serialize all required data
+				(var chartOpts, var mapOpts, var fetchOpts) = Serialize(serializeMapOpts: true);
+
+				//TODO: also pass DotNetObjectReference.Create(this) ?
+				await JSRuntime.InvokeVoidAsync("panoramicDataECharts.initChart", Id, Theme, initOptions, chartOpts, mapOpts, fetchOpts);
 			}
 
-			// serialize all required data
-			(var chartOpts, var mapOpts, var fetchOpts) = Serialize(serializeMapOpts: true);
-
-			// update the chart
-			await JSRuntime.InvokeVoidAsync("panoramicDataECharts.updateChart", Id, chartOpts, mapOpts, fetchOpts);
+			// Mark as initialized only if we successfully completed initialization
+			_chartInitialized = true;
 		}
-		else
+		catch (JSException)
 		{
-			// serialize all required data
-			(var chartOpts, var mapOpts, var fetchOpts) = Serialize(serializeMapOpts: true);
-
-			//TODO: also pass DotNetObjectReference.Create(this) ?
-			await JSRuntime.InvokeVoidAsync("panoramicDataECharts.initChart", Id, Theme, initOptions, chartOpts, mapOpts, fetchOpts);
+			// JavaScript not available yet (prerendering in Blazor Server)
+			// The component will render again after the SignalR connection is established
+			// and JavaScript will be available at that time. Don't set _chartInitialized
+			// so we can try again on the next render.
 		}
 	}
 

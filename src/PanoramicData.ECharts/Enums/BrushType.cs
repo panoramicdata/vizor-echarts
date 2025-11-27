@@ -6,6 +6,6 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverter<BrushType>))]
 public enum BrushType
 {
-	Stroke, 
+	Stroke,
 	Fill
 }

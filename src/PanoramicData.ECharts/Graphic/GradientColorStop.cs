@@ -5,8 +5,8 @@
 /// </summary>
 public class GradientColorStop
 {
-    public GradientColorStop(double offset, Color color)
-    {
+	public GradientColorStop(double offset, Color color)
+	{
 		Offset = offset;
 		Color = color;
 	}

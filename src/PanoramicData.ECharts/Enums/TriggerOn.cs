@@ -13,36 +13,33 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(TriggerOnConverter))]
 public enum TriggerOn
 {
-    MouseMove,
-    Click,
-    MouseMoveAndClick,
-    None
+	MouseMove,
+	Click,
+	MouseMoveAndClick,
+	None
 }
 
 public class TriggerOnConverter : JsonConverter<TriggerOn>
 {
-    public override TriggerOn Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-    {
-        throw new NotImplementedException("Deserialization is not implemented for TooltipTriggerOn.");
-    }
+	public override TriggerOn Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for TooltipTriggerOn.");
 
-    public override void Write(Utf8JsonWriter writer, TriggerOn value, JsonSerializerOptions options)
-    {
-        switch (value)
-        {
-            case TriggerOn.MouseMove:
-                writer.WriteStringValue("mousemove");
-                break;
-            case TriggerOn.Click:
-                writer.WriteStringValue("click");
-                break;
-            case TriggerOn.None:
-                writer.WriteStringValue("none");
-                break;
-            default:
-            case TriggerOn.MouseMoveAndClick:
-                writer.WriteStringValue("mousemove|click");
-                break;
-        }
-    }
+	public override void Write(Utf8JsonWriter writer, TriggerOn value, JsonSerializerOptions options)
+	{
+		switch (value)
+		{
+			case TriggerOn.MouseMove:
+				writer.WriteStringValue("mousemove");
+				break;
+			case TriggerOn.Click:
+				writer.WriteStringValue("click");
+				break;
+			case TriggerOn.None:
+				writer.WriteStringValue("none");
+				break;
+			default:
+			case TriggerOn.MouseMoveAndClick:
+				writer.WriteStringValue("mousemove|click");
+				break;
+		}
+	}
 }

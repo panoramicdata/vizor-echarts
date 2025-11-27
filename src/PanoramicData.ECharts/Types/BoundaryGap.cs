@@ -34,10 +34,7 @@ public class BoundaryGap
 
 public class BoundaryGapConverter : JsonConverter<BoundaryGap>
 {
-	public override BoundaryGap Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for BoundaryGap.");
-	}
+	public override BoundaryGap Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for BoundaryGap.");
 
 	public override void Write(Utf8JsonWriter writer, BoundaryGap value, JsonSerializerOptions options)
 	{

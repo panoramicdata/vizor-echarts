@@ -6,7 +6,7 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverter<EmphasisBlurScope>))]
 public enum EmphasisBlurScope
 {
-    CoordinateSystem,
-    Series,
-    Global
+	CoordinateSystem,
+	Series,
+	Global
 }

@@ -28,10 +28,7 @@ public class ObjectOrFunction
 
 public class ObjectOrFunctionConverter : JsonConverter<ObjectOrFunction>
 {
-	public override ObjectOrFunction Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for ObjectOrFunction.");
-	}
+	public override ObjectOrFunction Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for ObjectOrFunction.");
 
 	public override void Write(Utf8JsonWriter writer, ObjectOrFunction value, JsonSerializerOptions options)
 	{

@@ -8,7 +8,7 @@ public class NumberArray
 {
 	public NumberArray(double number)
 	{
-		Numbers = new double[] { number };
+		Numbers = [number];
 	}
 
 	public NumberArray(double[] numbers)
@@ -31,10 +31,7 @@ public class NumberArray
 
 public class NumberArrayConverter : JsonConverter<NumberArray>
 {
-	public override NumberArray Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for NumberArray.");
-	}
+	public override NumberArray Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for NumberArray.");
 
 	public override void Write(Utf8JsonWriter writer, NumberArray value, JsonSerializerOptions options)
 	{
@@ -51,6 +48,7 @@ public class NumberArrayConverter : JsonConverter<NumberArray>
 				{
 					writer.WriteNumberValue(val);
 				}
+
 				writer.WriteEndArray();
 			}
 		}

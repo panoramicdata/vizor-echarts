@@ -60,10 +60,7 @@ public class AutoCurveness
 
 public class AutoCurvenessConverter : JsonConverter<AutoCurveness>
 {
-	public override AutoCurveness Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for AutoCurveness.");
-	}
+	public override AutoCurveness Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for AutoCurveness.");
 
 	public override void Write(Utf8JsonWriter writer, AutoCurveness value, JsonSerializerOptions options)
 	{

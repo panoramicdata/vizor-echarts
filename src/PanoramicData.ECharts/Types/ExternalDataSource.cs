@@ -67,16 +67,10 @@ public class ExternalDataSource
 public class ExternalDataSourceConverter : JsonConverter<ExternalDataSource>
 {
 	internal ExternalDataSourceConverter()
-    {
+	{
 	}
 
-    public override ExternalDataSource Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for ExternalDataSource.");
-	}
+	public override ExternalDataSource Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for ExternalDataSource.");
 
-	public override void Write(Utf8JsonWriter writer, ExternalDataSource value, JsonSerializerOptions options)
-	{
-		throw new InvalidOperationException("ExternalDataSource cannot be serialized, please use ExternalDataSourceRef");
-	}
+	public override void Write(Utf8JsonWriter writer, ExternalDataSource value, JsonSerializerOptions options) => throw new InvalidOperationException("ExternalDataSource cannot be serialized, please use ExternalDataSourceRef");
 }

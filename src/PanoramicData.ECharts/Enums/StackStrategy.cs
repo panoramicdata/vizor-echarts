@@ -6,8 +6,8 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverter<StackStrategy>))]
 public enum StackStrategy
 {
-    SameSign,
-    All,
-    Positive,
-    Negative
+	SameSign,
+	All,
+	Positive,
+	Negative
 }

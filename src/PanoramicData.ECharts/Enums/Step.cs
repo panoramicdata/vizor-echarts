@@ -6,9 +6,9 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverterWithBoolean<Step>))]
 public enum Step
 {
-    True,
-    False,
-    Start,
-    Middle,
-    End
+	True,
+	False,
+	Start,
+	Middle,
+	End
 }

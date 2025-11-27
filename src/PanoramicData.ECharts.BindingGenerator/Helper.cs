@@ -7,7 +7,7 @@ internal static class Helper
 {
 	public static string ToClassName(this string input)
 	{
-		string[] words = input.Split(new char[] { '-', '_', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+		string[] words = input.Split(['-', '_', ' '], StringSplitOptions.RemoveEmptyEntries);
 		var sb = new StringBuilder();
 
 		foreach (string word in words)
@@ -22,7 +22,7 @@ internal static class Helper
 
 	public static List<string> ParsePropertyTypes(JsonElement value)
 	{
-		List<string> types = new();
+		List<string> types = [];
 
 		if (value.ValueKind == JsonValueKind.Array)
 		{

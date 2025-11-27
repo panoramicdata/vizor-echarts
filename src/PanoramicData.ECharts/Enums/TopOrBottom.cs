@@ -6,6 +6,6 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverter<TopOrBottom>))]
 public enum TopOrBottom
 {
-    Top,
-    Bottom
+	Top,
+	Bottom
 }

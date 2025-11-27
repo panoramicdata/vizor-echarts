@@ -40,10 +40,7 @@ public enum PictorialSymbolRepeatType
 
 public class PictorialSymbolRepeatConverter : JsonConverter<PictorialSymbolRepeat>
 {
-	public override PictorialSymbolRepeat Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for PictorialSymbolRepeat.");
-	}
+	public override PictorialSymbolRepeat Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for PictorialSymbolRepeat.");
 
 	public override void Write(Utf8JsonWriter writer, PictorialSymbolRepeat value, JsonSerializerOptions options)
 	{

@@ -33,10 +33,7 @@ public class StringOrFunction
 
 public class StringOrFunctionConverter : JsonConverter<StringOrFunction>
 {
-	public override StringOrFunction Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for StringOrFunction.");
-	}
+	public override StringOrFunction Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for StringOrFunction.");
 
 	public override void Write(Utf8JsonWriter writer, StringOrFunction value, JsonSerializerOptions options)
 	{

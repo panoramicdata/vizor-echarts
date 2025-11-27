@@ -6,7 +6,7 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverter<FontStyle>))]
 public enum FontStyle
 {
-    Normal,
-    Italic,
-    Oblique
+	Normal,
+	Italic,
+	Oblique
 }

@@ -164,17 +164,14 @@ internal abstract class BasePhase
 		return optProp;
 	}
 
-	protected virtual object? ParseDefault(JsonElement element)
+	protected virtual object? ParseDefault(JsonElement element) => element.ValueKind switch
 	{
-		return element.ValueKind switch
-		{
-			JsonValueKind.String => ParseDefaultAsString(element),
-			JsonValueKind.False => false,
-			JsonValueKind.True => true,
-			JsonValueKind.Number => element.GetDouble(),
-			_ => null
-		};
-	}
+		JsonValueKind.String => ParseDefaultAsString(element),
+		JsonValueKind.False => false,
+		JsonValueKind.True => true,
+		JsonValueKind.Number => element.GetDouble(),
+		_ => null
+	};
 
 	protected virtual string ParseDefaultAsString(JsonElement element)
 	{
@@ -216,15 +213,13 @@ internal abstract class BasePhase
 							TypeWarning = $"enum type '{prop.Name}' in '{parent.Name}' with values '{string.Join(',', optProp.EnumOptions ?? Array.Empty<string>())}' is not mapped"
 						};
 					}
+
 					return new SimpleType("string");
 				case "string":
 					return new SimpleType("string");
 				case "number":
 					// special case: we don't want to use double for indices
-					if (prop.Name.Contains("index", StringComparison.InvariantCultureIgnoreCase))
-						return new SimpleType("int");
-					else
-						return new SimpleType("double");
+					return prop.Name.Contains("index", StringComparison.InvariantCultureIgnoreCase) ? new SimpleType("int") : new SimpleType("double");
 				case "boolean":
 					return new SimpleType("bool");
 				case "color":
@@ -232,7 +227,7 @@ internal abstract class BasePhase
 				case "function":
 					return new MappedCustomType(typeof(Function));
 				case "array":
-					return typeCollection.MapArrayType(parent, optProp, prop);
+					return TypeCollection.MapArrayType(parent, optProp, prop);
 				case "*":
 					return new SimpleType("object");
 			}

@@ -8,7 +8,7 @@ public class MultiIndex
 {
 	public MultiIndex(int index)
 	{
-		Indices = new int[] { index };
+		Indices = [index];
 	}
 
 	public MultiIndex(int[] indices)
@@ -59,10 +59,7 @@ public enum MultiIndexType
 
 public class MultiIndexConverter : JsonConverter<MultiIndex>
 {
-	public override MultiIndex Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for MultiIndex.");
-	}
+	public override MultiIndex Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for MultiIndex.");
 
 	public override void Write(Utf8JsonWriter writer, MultiIndex value, JsonSerializerOptions options)
 	{
@@ -83,6 +80,7 @@ public class MultiIndexConverter : JsonConverter<MultiIndex>
 				{
 					writer.WriteNumberValue(val);
 				}
+
 				writer.WriteEndArray();
 			}
 		}

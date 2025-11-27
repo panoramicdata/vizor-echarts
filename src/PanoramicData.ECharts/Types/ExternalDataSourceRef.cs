@@ -1,5 +1,5 @@
-﻿using System.Text.Json.Serialization;
-using System.Text.Json;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace PanoramicData.ECharts;
 
@@ -28,20 +28,18 @@ public class ExternalDataSourceRefConverter : JsonConverter<ExternalDataSourceRe
 	{
 	}
 
-	public override ExternalDataSourceRef Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for ExternalDataSourceRef.");
-	}
+	public override ExternalDataSourceRef Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for ExternalDataSourceRef.");
 
 	public override void Write(Utf8JsonWriter writer, ExternalDataSourceRef value, JsonSerializerOptions options)
 	{
-		string raw = $"window.vizorECharts.getDataSource('{value.FetchId}')";
+		string raw = $"window.panoramicDataECharts.getDataSource('{value.FetchId}')";
 		if (value.Path != null)
 		{
 			if (!value.Path.StartsWith('.'))
 				raw += '.';
 			raw += value.Path;
 		}
+
 		writer.WriteRawValue(raw, skipInputValidation: true);
 	}
 }

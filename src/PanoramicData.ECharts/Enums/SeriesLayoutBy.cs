@@ -6,6 +6,6 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverter<SeriesLayoutBy>))]
 public enum SeriesLayoutBy
 {
-    Column,
-    Row
+	Column,
+	Row
 }

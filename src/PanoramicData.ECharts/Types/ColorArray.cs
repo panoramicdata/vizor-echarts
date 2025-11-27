@@ -8,7 +8,7 @@ public class ColorArray
 {
 	public ColorArray(Color color)
 	{
-		Colors = new Color[] { color };
+		Colors = [color];
 	}
 
 	public ColorArray(Color[] colors)
@@ -36,10 +36,7 @@ public class ColorArray
 
 public class ColorArrayConverter : JsonConverter<ColorArray>
 {
-	public override ColorArray Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for ColorArray.");
-	}
+	public override ColorArray Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for ColorArray.");
 
 	public override void Write(Utf8JsonWriter writer, ColorArray value, JsonSerializerOptions options)
 	{
@@ -56,6 +53,7 @@ public class ColorArrayConverter : JsonConverter<ColorArray>
 				{
 					ColorConverter.Instance.Write(writer, val, options);
 				}
+
 				writer.WriteEndArray();
 			}
 		}

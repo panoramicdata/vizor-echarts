@@ -5,10 +5,7 @@ namespace PanoramicData.ECharts.Internal;
 
 internal class PolymorphicJsonConverter<T> : JsonConverter<T>
 {
-	public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException($"Deserialization is not implemented for {typeof(T)}.");
-	}
+	public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException($"Deserialization is not implemented for {typeof(T)}.");
 
 	public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
 	{
@@ -16,7 +13,7 @@ internal class PolymorphicJsonConverter<T> : JsonConverter<T>
 		{
 			writer.WriteNullValue();
 		}
-        else
+		else
 		{
 			JsonSerializer.Serialize(writer, value, value.GetType(), options);
 		}
@@ -25,10 +22,7 @@ internal class PolymorphicJsonConverter<T> : JsonConverter<T>
 
 internal class PolymorphicListJsonConverter<T> : JsonConverter<List<T>>
 {
-	public override List<T> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException($"Deserialization is not implemented for List<{typeof(T)}>.");
-	}
+	public override List<T> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException($"Deserialization is not implemented for List<{typeof(T)}>.");
 
 	public override void Write(Utf8JsonWriter writer, List<T> value, JsonSerializerOptions options)
 	{
@@ -46,6 +40,7 @@ internal class PolymorphicListJsonConverter<T> : JsonConverter<List<T>>
 				else
 					JsonSerializer.Serialize(writer, item, item.GetType(), options);
 			}
+
 			writer.WriteEndArray();
 		}
 	}
@@ -53,10 +48,7 @@ internal class PolymorphicListJsonConverter<T> : JsonConverter<List<T>>
 
 internal class PolymorphicArrayJsonConverter<T> : JsonConverter<T[]>
 {
-	public override T[] Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException($"Deserialization is not implemented for {typeof(T)}[].");
-	}
+	public override T[] Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException($"Deserialization is not implemented for {typeof(T)}[].");
 
 	public override void Write(Utf8JsonWriter writer, T[] value, JsonSerializerOptions options)
 	{
@@ -74,6 +66,7 @@ internal class PolymorphicArrayJsonConverter<T> : JsonConverter<T[]>
 				else
 					JsonSerializer.Serialize(writer, item, item.GetType(), options);
 			}
+
 			writer.WriteEndArray();
 		}
 	}

@@ -6,6 +6,6 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverter<LegendType>))]
 public enum LegendType
 {
-    Plain,
-    Scroll
+	Plain,
+	Scroll
 }

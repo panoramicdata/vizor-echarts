@@ -14,7 +14,7 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverter<Overflow>))]
 public enum Overflow
 {
-    Truncate,
-    Break,
-    BreakAll
+	Truncate,
+	Break,
+	BreakAll
 }

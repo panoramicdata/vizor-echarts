@@ -63,8 +63,8 @@ function getData() {
 				Show = false
 			}
 		},
-		Series = new()
-			{
+		Series =
+			[
 				new ScatterSeries()
 				{
 					Name = "Punch Card",
@@ -72,7 +72,7 @@ function getData() {
 					Data = dataFunc,
 					AnimationDelay = new JavascriptFunction("function (idx) { return idx * 5; }")
 				}
-			}
+			]
 	};
 
 	var jsonOpts = new JsonSerializerOptions()

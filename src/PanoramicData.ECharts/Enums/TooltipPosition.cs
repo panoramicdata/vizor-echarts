@@ -55,10 +55,7 @@ public enum TooltipPositionType
 
 public class TooltipPositionConverter : JsonConverter<TooltipPosition>
 {
-	public override TooltipPosition Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for TooltipPosition.");
-	}
+	public override TooltipPosition Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for TooltipPosition.");
 
 	public override void Write(Utf8JsonWriter writer, TooltipPosition value, JsonSerializerOptions options)
 	{

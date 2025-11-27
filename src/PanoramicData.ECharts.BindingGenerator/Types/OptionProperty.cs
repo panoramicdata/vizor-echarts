@@ -2,14 +2,14 @@
 
 internal class OptionProperty
 {
-    public OptionProperty(ObjectType? parentType, string name, string propertyName)
-    {
+	public OptionProperty(ObjectType? parentType, string name, string propertyName)
+	{
 		ParentType = parentType;
 		Name = name;
 		PropertyName = propertyName;
 	}
 
-    private readonly List<string> types = new();
+	private readonly List<string> types = [];
 
 	public ObjectType? ParentType { get; }
 	public string Name { get; set; }
@@ -30,10 +30,7 @@ internal class OptionProperty
 
 	public string Path => ParentType == null ? string.Empty : ParentType.Path;
 
-	public void RemoveType(string name)
-	{
-		types.RemoveAll(item => item == name);
-	}
+	public void RemoveType(string name) => types.RemoveAll(item => item == name);
 
 	public void AddType(string name)
 	{

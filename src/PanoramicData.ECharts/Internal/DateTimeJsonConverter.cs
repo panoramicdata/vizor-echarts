@@ -5,10 +5,7 @@ namespace PanoramicData.ECharts.Internal;
 
 public class DateTimeJsonConverter : JsonConverter<DateTime>
 {
-	public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for DateTime.");
-	}
+	public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for DateTime.");
 
 	public override void Write(Utf8JsonWriter writer, DateTime value, JsonSerializerOptions options)
 	{

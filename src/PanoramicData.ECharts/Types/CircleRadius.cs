@@ -13,40 +13,37 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CircleRadiusConverter))]
 public class CircleRadius
 {
-    public CircleRadius(NumberOrString outsideRadius)
-    {
-        OutsideRadius = outsideRadius;
-    }
+	public CircleRadius(NumberOrString outsideRadius)
+	{
+		OutsideRadius = outsideRadius;
+	}
 
-    public CircleRadius(NumberOrString insideRadius, NumberOrString outsideRadius)
-    {
-        InsideRadius = insideRadius;
-        OutsideRadius = outsideRadius;
-    }
+	public CircleRadius(NumberOrString insideRadius, NumberOrString outsideRadius)
+	{
+		InsideRadius = insideRadius;
+		OutsideRadius = outsideRadius;
+	}
 
-    public NumberOrString OutsideRadius { get; }
-    public NumberOrString? InsideRadius { get; }
+	public NumberOrString OutsideRadius { get; }
+	public NumberOrString? InsideRadius { get; }
 }
 
 public class CircleRadiusConverter : JsonConverter<CircleRadius>
 {
-    public override CircleRadius Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-    {
-        throw new NotImplementedException("Deserialization is not implemented for CircleRadius.");
-    }
+	public override CircleRadius Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for CircleRadius.");
 
-    public override void Write(Utf8JsonWriter writer, CircleRadius value, JsonSerializerOptions options)
-    {
-        if (value.InsideRadius == null)
-        {
-            NumberOrStringConverter.Instance.Write(writer, value.OutsideRadius, options);
-        }
-        else
-        {
-            writer.WriteStartArray();
-            NumberOrStringConverter.Instance.Write(writer, value.InsideRadius, options);
-            NumberOrStringConverter.Instance.Write(writer, value.OutsideRadius, options);
-            writer.WriteEndArray();
-        }
-    }
+	public override void Write(Utf8JsonWriter writer, CircleRadius value, JsonSerializerOptions options)
+	{
+		if (value.InsideRadius == null)
+		{
+			NumberOrStringConverter.Instance.Write(writer, value.OutsideRadius, options);
+		}
+		else
+		{
+			writer.WriteStartArray();
+			NumberOrStringConverter.Instance.Write(writer, value.InsideRadius, options);
+			NumberOrStringConverter.Instance.Write(writer, value.OutsideRadius, options);
+			writer.WriteEndArray();
+		}
+	}
 }

@@ -55,6 +55,7 @@ internal class GenerateTypeInfoTool
 				{
 					writer.WriteLine($"\t{path}");
 				}
+
 				writer.WriteLine();
 			}
 		}

@@ -135,13 +135,11 @@
 			}
 		};
 
-	protected override void OnInitialized()
-	{
-		// Start the timer when the component is initialized.
-		timer = new Timer(async _ => await UpdateChartAsync(), null, 2000, 2000);
-	}
+        protected override void OnInitialized() =>
+            // Start the timer when the component is initialized.
+            timer = new Timer(async _ => await UpdateChartAsync(), null, 2000, 2000);
 
-	private async Task UpdateChartAsync()
+        private async Task UpdateChartAsync()
 	{
 		if (chart == null)
 			return;
@@ -157,8 +155,5 @@
 		await chart.UpdateAsync();
 	}
 
-	public void Dispose()
-	{
-		timer?.Dispose();
-	}
+        public void Dispose() => timer?.Dispose();
 }

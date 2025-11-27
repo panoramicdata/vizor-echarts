@@ -33,10 +33,7 @@ public class CellSize
 
 public class CellSizeConverter : JsonConverter<CellSize>
 {
-	public override CellSize Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for CellSize.");
-	}
+	public override CellSize Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for CellSize.");
 
 	public override void Write(Utf8JsonWriter writer, CellSize value, JsonSerializerOptions options)
 	{

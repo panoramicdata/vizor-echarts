@@ -9,6 +9,6 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverter<TooltipRenderMode>))]
 public enum TooltipRenderMode
 {
-    Html,
-    RichText
+	Html,
+	RichText
 }

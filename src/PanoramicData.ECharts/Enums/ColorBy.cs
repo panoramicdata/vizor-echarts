@@ -6,6 +6,6 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverter<ColorBy>))]
 public enum ColorBy
 {
-    Series,
-    Data
+	Series,
+	Data
 }

@@ -9,6 +9,6 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(LowerCaseEnumConverter<LineCoordinateSystem>))]
 public enum LineCoordinateSystem
 {
-    Cartesian2D,
-    Polar
+	Cartesian2D,
+	Polar
 }

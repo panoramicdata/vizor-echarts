@@ -1,4 +1,8 @@
-window.vizorECharts = {
+/**
+ * PanoramicData.ECharts - Blazor wrapper for Apache ECharts
+ * JavaScript interop layer
+ */
+window.panoramicDataECharts = {
 
 	charts: new Map(),
 	dataSources: new Map(),
@@ -6,17 +10,17 @@ window.vizorECharts = {
 	logging: false,
 
 	changeLogging: function (b) {
-		vizorECharts.logging = b;
+		panoramicDataECharts.logging = b;
 	},
 
 	getChart: function (id) {
-		return vizorECharts.charts.get(id);
+		return panoramicDataECharts.charts.get(id);
 	},
 
 	getDataSource: function (fetchId) {
-		var data = vizorECharts.dataSources.get(fetchId);
+		var data = panoramicDataECharts.dataSources.get(fetchId);
 
-		if (vizorECharts.logging) {
+		if (panoramicDataECharts.logging) {
 			console.log(`GET CACHED FETCH ${fetchId}`);
 			console.log(data);
 		}
@@ -45,7 +49,7 @@ window.vizorECharts = {
 		chart.__dataSources = [];
 
 		for (item of JSON.parse(fetchOptions)) {
-			if (vizorECharts.logging) {
+			if (panoramicDataECharts.logging) {
 				console.log(`FETCH ${item.id}`);
 				console.log(item);
 			}
@@ -63,7 +67,7 @@ window.vizorECharts = {
 				// replace the object with the fetched data
 				if (item.path != null) {
 					try {
-						data = vizorECharts.evaluatePath(data, item.path);
+						data = panoramicDataECharts.evaluatePath(data, item.path);
 					} catch (error) {
 						console.log('Failed to evaluate path expression of external data source');
 						console.log(error);
@@ -73,7 +77,7 @@ window.vizorECharts = {
 				data = await response.text();
 			}
 
-			if (vizorECharts.logging) {
+			if (panoramicDataECharts.logging) {
 				console.log(data);
 			}
 
@@ -89,7 +93,7 @@ window.vizorECharts = {
 			}
 
 			// store in the datasources map for later retrieval
-			window.vizorECharts.dataSources.set(item.id, data);
+			window.panoramicDataECharts.dataSources.set(item.id, data);
 
 			// add reference inside the chart, so we can cleanup later
 			chart.__dataSources.push(item.id);
@@ -102,7 +106,7 @@ window.vizorECharts = {
 
 		var parsedOptions = eval('(' + mapOptions + ')');
 		for (item of parsedOptions) {
-			if (vizorECharts.logging) {
+			if (panoramicDataECharts.logging) {
 				console.log("MAP");
 				console.log(item);
 			}
@@ -117,7 +121,7 @@ window.vizorECharts = {
 
 	initChart: async function (id, theme, initOptions, chartOptions, mapOptions, fetchOptions) {
 		var chart = echarts.init(document.getElementById(id), theme, JSON.parse(initOptions));
-		vizorECharts.charts.set(id, chart);
+		panoramicDataECharts.charts.set(id, chart);
 
 		// show loading animation
 		chart.showLoading();
@@ -126,15 +130,15 @@ window.vizorECharts = {
 			return;
 
 		// fetch external data if needed
-		await vizorECharts.fetchExternalData(chart, fetchOptions);
+		await panoramicDataECharts.fetchExternalData(chart, fetchOptions);
 
 		// register GEO maps
-		await vizorECharts.registerMaps(chart, mapOptions);
+		await panoramicDataECharts.registerMaps(chart, mapOptions);
 
-		// parse the options
+		// parse the options using eval to support JavaScript functions
 		var parsedOptions = eval('(' + chartOptions + ')');
 
-		if (vizorECharts.logging) {
+		if (panoramicDataECharts.logging) {
 			console.log("CHART");
 			console.log(parsedOptions);
 		}
@@ -147,22 +151,21 @@ window.vizorECharts = {
 	},
 
 	updateChart: async function (id, chartOptions, mapOptions, fetchOptions) {
-		var chart = vizorECharts.charts.get(id);
+		var chart = panoramicDataECharts.charts.get(id);
 		if (chart == null) {
 			console.error("Failed to retrieve chart " + id);
 			return;
 		}
 
 		// fetch external data if needed
-		await vizorECharts.fetchExternalData(chart, fetchOptions);
+		await panoramicDataECharts.fetchExternalData(chart, fetchOptions);
 
 		// register GEO maps
-		await vizorECharts.registerMaps(chart, mapOptions);
+		await panoramicDataECharts.registerMaps(chart, mapOptions);
 
-		// parse the options
+		// parse the options using eval to support JavaScript functions
 		var parsedOptions = eval('(' + chartOptions + ')');
 
-		// iterate through the options and map all JS functions / external data sources
 		// set the chart options
 		chart.setOption(parsedOptions);
 
@@ -171,7 +174,7 @@ window.vizorECharts = {
 	},
 
 	clearChart: function (id) {
-		var chart = vizorECharts.charts.get(id);
+		var chart = panoramicDataECharts.charts.get(id);
 		if (chart == null) {
 			console.error("Failed to clear chart " + id);
 			return;
@@ -181,7 +184,7 @@ window.vizorECharts = {
 	},
 
 	disposeChart: function (id) {
-		var chart = vizorECharts.charts.get(id);
+		var chart = panoramicDataECharts.charts.get(id);
 		if (chart == null) {
 			console.error("Failed to dispose chart " + id);
 			return;
@@ -190,11 +193,11 @@ window.vizorECharts = {
 		// dispose of all dataSources linked to the chart
 		if (chart.__dataSources && Array.isArray(chart.__dataSources)) {
 			chart.__dataSources.forEach(id => {
-				window.vizorECharts.dataSources.delete(id);
+				window.panoramicDataECharts.dataSources.delete(id);
 			});
 		}
 
 		echarts.dispose(chart)
-		vizorECharts.charts.delete(id);
+		panoramicDataECharts.charts.delete(id);
 	}
 };

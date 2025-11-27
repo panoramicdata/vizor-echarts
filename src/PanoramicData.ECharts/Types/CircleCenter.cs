@@ -10,28 +10,25 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CircleCenterConverter))]
 public class CircleCenter
 {
-    public CircleCenter(NumberOrString horizontal, NumberOrString vertical)
-    {
-        Horizontal = horizontal;
-        Vertical = vertical;
-    }
+	public CircleCenter(NumberOrString horizontal, NumberOrString vertical)
+	{
+		Horizontal = horizontal;
+		Vertical = vertical;
+	}
 
-    public NumberOrString Horizontal { get; }
-    public NumberOrString Vertical { get; }
+	public NumberOrString Horizontal { get; }
+	public NumberOrString Vertical { get; }
 }
 
 public class CircleCenterConverter : JsonConverter<CircleCenter>
 {
-    public override CircleCenter Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-    {
-        throw new NotImplementedException("Deserialization is not implemented for CircleCenter.");
-    }
+	public override CircleCenter Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for CircleCenter.");
 
-    public override void Write(Utf8JsonWriter writer, CircleCenter value, JsonSerializerOptions options)
-    {
-        writer.WriteStartArray();
-        NumberOrStringConverter.Instance.Write(writer, value.Horizontal, options);
-        NumberOrStringConverter.Instance.Write(writer, value.Vertical, options);
-        writer.WriteEndArray();
-    }
+	public override void Write(Utf8JsonWriter writer, CircleCenter value, JsonSerializerOptions options)
+	{
+		writer.WriteStartArray();
+		NumberOrStringConverter.Instance.Write(writer, value.Horizontal, options);
+		NumberOrStringConverter.Instance.Write(writer, value.Vertical, options);
+		writer.WriteEndArray();
+	}
 }

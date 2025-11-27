@@ -6,7 +6,7 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverter<LineCap>))]
 public enum LineCap
 {
-    Butt,
-    Round,
-    Square
+	Butt,
+	Round,
+	Square
 }

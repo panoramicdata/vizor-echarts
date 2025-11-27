@@ -193,10 +193,7 @@
 		{
 			showMap = !showMap;
 
-			if (showMap)
-				chart.Options = mapOptions;
-			else
-				chart.Options = barOptions;
+			chart.Options = showMap ? mapOptions : barOptions;
 
 			await chart.UpdateAsync();
 		}

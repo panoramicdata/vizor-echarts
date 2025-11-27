@@ -37,10 +37,7 @@ public class ColorOrFunction
 
 public class ColorOrFunctionConverter : JsonConverter<ColorOrFunction>
 {
-	public override ColorOrFunction Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for ColorOrFunction.");
-	}
+	public override ColorOrFunction Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for ColorOrFunction.");
 
 	public override void Write(Utf8JsonWriter writer, ColorOrFunction value, JsonSerializerOptions options)
 	{

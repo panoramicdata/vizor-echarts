@@ -35,20 +35,11 @@ internal sealed class CSharpCodeWriter : IDisposable
 		writer.WriteLine();
 	}
 
-	public void WriteNamespace(string ns)
-	{
-		writer.WriteLine($"namespace {ns};");
-	}
+	public void WriteNamespace(string ns) => writer.WriteLine($"namespace {ns};");
 
-	public void WriteUsing(string ns)
-	{
-		writer.WriteLine($"using {ns};");
-	}
+	public void WriteUsing(string ns) => writer.WriteLine($"using {ns};");
 
-	public void WriteGlobalUsing(string ns)
-	{
-		writer.WriteLine($"global using {ns};");
-	}
+	public void WriteGlobalUsing(string ns) => writer.WriteLine($"global using {ns};");
 
 	public void EmptyLine()
 	{
@@ -78,10 +69,7 @@ internal sealed class CSharpCodeWriter : IDisposable
 		writer.Write(str);
 	}
 
-	public void IndentMore()
-	{
-		++indentLevel;
-	}
+	public void IndentMore() => ++indentLevel;
 
 	public void IndentLess()
 	{

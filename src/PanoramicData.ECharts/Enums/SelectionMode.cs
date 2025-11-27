@@ -6,8 +6,8 @@ namespace PanoramicData.ECharts;
 [JsonConverter(typeof(CamelCaseEnumConverterWithBoolean<SelectionMode>))]
 public enum SelectionMode
 {
-    True,
-    False,
-    Single,
-    Multiple
+	True,
+	False,
+	Single,
+	Multiple
 }

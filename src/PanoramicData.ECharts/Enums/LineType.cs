@@ -12,7 +12,7 @@ public class LineType
 {
 	public LineType(double number)
 	{
-		Pattern = new double[] { number };
+		Pattern = [number];
 	}
 
 	public LineType(double[] pattern)
@@ -55,10 +55,7 @@ public enum LineTypeStyle
 
 public class LineTypeConverter : JsonConverter<LineType>
 {
-	public override LineType Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		throw new NotImplementedException("Deserialization is not implemented for LineType.");
-	}
+	public override LineType Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException("Deserialization is not implemented for LineType.");
 
 	public override void Write(Utf8JsonWriter writer, LineType value, JsonSerializerOptions options)
 	{
@@ -79,6 +76,7 @@ public class LineTypeConverter : JsonConverter<LineType>
 				{
 					writer.WriteNumberValue(val);
 				}
+
 				writer.WriteEndArray();
 			}
 		}
