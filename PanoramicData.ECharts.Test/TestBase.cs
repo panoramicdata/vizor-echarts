@@ -77,8 +77,9 @@ public class TestBase : IAsyncLifetime
 			State = WaitForSelectorState.Attached
 		});
 
-		// CRITICAL: Wait for ECharts to create the canvas inside the div
-		await Page.WaitForSelectorAsync("[id^='chart'] canvas", new()
+		// CRITICAL: Wait for ECharts to create the canvas or SVG inside the div
+		// ECharts can use either canvas or SVG renderer
+		await Page.WaitForSelectorAsync("[id^='chart'] canvas, [id^='chart'] svg", new()
 		{
 			State = WaitForSelectorState.Visible,
 			Timeout = 15000  // Give ECharts time to initialize
@@ -127,9 +128,9 @@ public class TestBase : IAsyncLifetime
 	}
 
 	/// <summary>
-	/// Verify chart canvas is visible
+	/// Verify chart canvas or SVG is visible
 	/// </summary>
-	protected async Task<bool> IsChartVisibleAsync() => await Page.Locator("[id^='chart'] canvas").IsVisibleAsync();
+	protected async Task<bool> IsChartVisibleAsync() => await Page.Locator("[id^='chart'] canvas, [id^='chart'] svg").IsVisibleAsync();
 
 	/// <summary>
 	/// Take a screenshot for the current test
