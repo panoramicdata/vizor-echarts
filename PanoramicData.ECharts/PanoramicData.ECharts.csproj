@@ -14,9 +14,9 @@
 		<Product>Vizor ECharts components for Blazor</Product>
 		<ProductName>PanoramicData.ECharts</ProductName>
 
-		<PackageProjectUrl>https://github.com/datahint-eu/vizor-echarts</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/panoramicdata/PanoramicData.ECharts</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<RepositoryUrl>https://github.com/datahint-eu/vizor-echarts</RepositoryUrl>
+		<RepositoryUrl>https://github.com/panoramicdata/PanoramicData.ECharts</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>blazor;echarts;apache;chart;library;vizor</PackageTags>
 		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
@@ -41,7 +41,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
+		<None Include="..\README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
