@@ -164,7 +164,8 @@ function Run-Tests {
         throw "Test project not found: $testProjectPath"
     }
 
-    dotnet test $testProjectPath --configuration $Configuration --no-build --logger "console;verbosity=normal"
+    # Run tests with fail-fast option to stop after first failure
+    dotnet test $testProjectPath --configuration $Configuration --no-build --logger "console;verbosity=normal" -- RunConfiguration.StopTestExecutionOnFirstFailure=true
 
     $testResult = $LASTEXITCODE
 
@@ -294,7 +295,7 @@ try {
 }
 catch {
     Write-ColorOutput "`n╔════════════════════════════════════════════╗" $Red
-    Write-ColorOutput "║            Publication failed!              ║" $Red
+    Write-ColorOutput "║            Publication failed!             ║" $Red
     Write-ColorOutput "╚════════════════════════════════════════════╝" $Red
     Write-Error "Error: $_"
 

@@ -6,7 +6,7 @@ namespace PanoramicData.ECharts.Test;
 public class TestBase : IAsyncLifetime
 {
 	protected const string BaseUrl = "http://localhost:5185"; // Adjust port if needed
-	protected const int DefaultTimeout = 30000; // 30 seconds
+	protected const int DefaultTimeout = 10000; // 10 seconds
 
 	protected IPlaywright? Playwright { get; private set; }
 	protected IBrowser? Browser { get; private set; }
@@ -75,7 +75,7 @@ public class TestBase : IAsyncLifetime
 		await Page.WaitForSelectorAsync("[id^='chart']", new() { State = WaitForSelectorState.Attached });
 
 		// Give ECharts time to render (animations, etc.)
-		await Page.WaitForTimeoutAsync(1000);
+		await Page.WaitForTimeoutAsync(500);
 	}
 
 	/// <summary>
