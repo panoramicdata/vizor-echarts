@@ -9,14 +9,14 @@ A comprehensive Blazor wrapper for [Apache ECharts](https://echarts.apache.org/e
 
 ## Features
 
-- ? **Full .NET Support**: Compatible with .NET 10.0
-- ? **Latest ECharts**: Ships with Apache ECharts 6.0.0
-- ? **Type-Safe Bindings**: Strong typing throughout the API
-- ? **Open Source**: Apache-2.0 licensed (same as Apache ECharts)
-- ? **Comprehensive Examples**: Extensive demo project with real-world examples
-- ? **Multiple Data Loading Strategies**: Sync, async, and external data sources
-- ? **JavaScript Functions**: Support for custom formatters and callbacks
-- ? **Real-time Updates**: Dynamic chart updates and animations
+- **Full .NET Support**: Compatible with .NET 10.0
+- **Latest ECharts**: Ships with Apache ECharts 6.0.0
+- **Type-Safe Bindings**: Strong typing throughout the API
+- **Open Source**: Apache-2.0 licensed (same as Apache ECharts)
+- **Comprehensive Examples**: Extensive demo project with real-world examples
+- **Multiple Data Loading Strategies**: Sync, async, and external data sources
+- **JavaScript Functions**: Support for custom formatters and callbacks
+- **Real-time Updates**: Dynamic chart updates and animations
 
 ## Supported Chart Types
 
@@ -292,17 +292,17 @@ window.panoramicDataECharts.getDataSource([...])
 
 #### Non-Breaking Changes
 
-- ? **C# API**: No changes - all existing C# code remains compatible
-- ? **Chart Options**: No changes - all option structures unchanged
-- ? **Component Properties**: No changes - all EChart component properties work as before
-- ? **ECharts Upgraded**: Now ships with Apache ECharts 6.0.0 (performance improvements)
+- **C# API**: No changes - all existing C# code remains compatible
+- **Chart Options**: No changes - all option structures unchanged
+- **Component Properties**: No changes - all EChart component properties work as before
+- **ECharts Upgraded**: Now ships with Apache ECharts 6.0.0 (performance improvements)
 
 #### New Features in v6.0
 
-- ? **Symbol Packages**: Debugging symbols (.snupkg) now published for better debugging experience
-- ? **Source Link**: Step through library source code during debugging
-- ? **Performance**: Improved rendering performance from ECharts 6.0.0 engine
-- ? **Versioning**: Now using Nerdbank.GitVersioning for consistent versioning
+- **Symbol Packages**: Debugging symbols (.snupkg) now published for better debugging experience
+- **Source Link**: Step through library source code during debugging
+- **Performance**: Improved rendering performance from ECharts 6.0.0 engine
+- **Versioning**: Now using Nerdbank.GitVersioning for consistent versioning
 
 ## Contributing & Support
 
@@ -339,4 +339,4 @@ See [LICENSE](LICENSE) for details.
 
 ---
 
-**[? Star this repo](https://github.com/panoramicdata/PanoramicData.ECharts)** if you find it useful!
+**[Star this repo ?](https://github.com/panoramicdata/PanoramicData.ECharts)** if you find it useful!
