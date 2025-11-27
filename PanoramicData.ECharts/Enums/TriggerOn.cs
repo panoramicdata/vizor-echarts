@@ -33,11 +33,13 @@ public class TriggerOnConverter : JsonConverter<TriggerOn>
 			case TriggerOn.Click:
 				writer.WriteStringValue("click");
 				break;
+			case TriggerOn.MouseMoveAndClick:
+				writer.WriteStringValue("mousemove|click");
+				break;
 			case TriggerOn.None:
 				writer.WriteStringValue("none");
 				break;
 			default:
-			case TriggerOn.MouseMoveAndClick:
 				writer.WriteStringValue("mousemove|click");
 				break;
 		}
