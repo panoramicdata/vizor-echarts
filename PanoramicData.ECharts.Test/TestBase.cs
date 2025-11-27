@@ -13,7 +13,7 @@ public class TestBase : IAsyncLifetime
 	protected IBrowserContext? Context { get; private set; }
 	protected IPage Page { get; private set; } = null!;
 
-	public async Task InitializeAsync()
+	public async ValueTask InitializeAsync()
 	{
 		// Install playwright
 		var exitCode = Microsoft.Playwright.Program.Main(["install"]);
@@ -43,7 +43,7 @@ public class TestBase : IAsyncLifetime
 		Page.SetDefaultTimeout(DefaultTimeout);
 	}
 
-	public async Task DisposeAsync()
+	public async ValueTask DisposeAsync()
 	{
 		if (Page != null)
 		{
