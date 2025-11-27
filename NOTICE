@@ -1,7 +1,6 @@
-Vizor ECharts components for Blazor
+Panoramic Data ECharts components for Blazor
 
-   Copyright 2023 DataHint BV
-   Copyright 2023 Ben Motmans
+   Copyright 2025 Ben Motmans
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file or any other file in this repository except in compliance with the License.
@@ -15,23 +14,23 @@ Vizor ECharts components for Blazor
    See the License for the specific language governing permissions and
    limitations under the License.
 
-
-
-
 The following components are included in this product:
+
+Vizor ECharts
+https://github.com/datahint-eu/vizor-echarts
+Copyright 2023 DataHint BV
+Copyright 2023 Ben Motmans
 
 Apache ECharts
 https://github.com/apache/echarts
 Copyright 2017-2023 The Apache Software Foundation
 Licensed under the Apache License, Version 2.0
 
-
 Tabler Icons
 https://github.com/tabler/tabler-icons
 Copyright (c) 2020-2023 Paweł Kuna
 Licensed under the MIT License
 
-
-ecStat: A statistical and data mining tool for Apache ECharts. 
+ecStat: A statistical and data mining tool for Apache ECharts.
 https://github.com/ecomfe/echarts-stat
 Licensed under the BSD License

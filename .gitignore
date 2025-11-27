@@ -9,3 +9,6 @@ x64/
 node_modules/
 .vs/
 /src/Vizor.ECharts/package-lock.json
+
+# NuGet API Key (sensitive)
+nuget-key.txt

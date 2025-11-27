@@ -13,10 +13,6 @@
 
 		<Product>Vizor ECharts components for Blazor</Product>
 		<ProductName>PanoramicData.ECharts</ProductName>
-		<Version>$(Version)</Version>
-		<ProductVersion>$(Version)</ProductVersion>
-		<AssemblyVersion>$(Version)</AssemblyVersion>
-		<FileVersion>$(Version)</FileVersion>
 
 		<PackageProjectUrl>https://github.com/datahint-eu/vizor-echarts</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
@@ -26,10 +22,9 @@
 		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<Description>Blazor wrapper for Apache ECharts.</Description>
 
-		<!-- no warnings for missing XML docs -->
 		<WarningsAsErrors>true</WarningsAsErrors>
 		<Title>PanoramicData.ECharts</Title>
-		<PackageId>$(AssemblyName)</PackageId>
+		<PackageId>PanoramicData.ECharts</PackageId>
 	</PropertyGroup>
 
 	<!-- Only generate package on build in Release mode -->
