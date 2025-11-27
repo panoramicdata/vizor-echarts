@@ -10,5 +10,8 @@ node_modules/
 .vs/
 /src/Vizor.ECharts/package-lock.json
 
+# Build artifacts
+artifacts/
+
 # NuGet API Key (sensitive)
 nuget-key.txt

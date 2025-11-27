@@ -16,6 +16,7 @@
 
 		<PackageProjectUrl>https://github.com/panoramicdata/PanoramicData.ECharts</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>Panoramic Data.png</PackageIcon>
 		<RepositoryUrl>https://github.com/panoramicdata/PanoramicData.ECharts</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>blazor;echarts;apache;chart;library;vizor</PackageTags>
@@ -51,6 +52,7 @@
 
 	<ItemGroup>
 		<None Include="..\README.md" Pack="true" PackagePath="\" />
+		<None Include="Panoramic Data.png" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
